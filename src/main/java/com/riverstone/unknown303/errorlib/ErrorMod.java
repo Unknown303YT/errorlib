@@ -1,9 +1,12 @@
 package com.riverstone.unknown303.errorlib;
 
 import com.mojang.logging.LogUtils;
+import com.riverstone.unknown303.errorlib.ability.ErrorAbilities;
 import com.riverstone.unknown303.errorlib.blocks.ModBlocks;
 import com.riverstone.unknown303.errorlib.items.ModCreativeTabs;
 import com.riverstone.unknown303.errorlib.items.ModItems;
+import com.riverstone.unknown303.errorlib.networking.ModPacketSender;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -29,9 +32,12 @@ public class ErrorMod {
 
     public ErrorMod(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
+        ErrorHelpers.MOD_INFO.eventBus(modEventBus);
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+
+        ErrorAbilities.register(modEventBus);
 
         ModCreativeTabs.register(modEventBus);
 
@@ -43,11 +49,18 @@ public class ErrorMod {
 
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        // Common Setup
+        event.enqueueWork(ModPacketSender::register);
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        //Creative Mod Tabs Here
+        if (event.getTabKey() == CreativeModeTabs.COMBAT) {
+            event.accept(ModItems.WOOD_DAGGER);
+            event.accept(ModItems.STONE_DAGGER);
+            event.accept(ModItems.IRON_DAGGER);
+            event.accept(ModItems.GOLD_DAGGER);
+            event.accept(ModItems.DIAMOND_DAGGER);
+            event.accept(ModItems.NETHERITE_DAGGER);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

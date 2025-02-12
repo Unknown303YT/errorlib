@@ -106,8 +106,8 @@ key_key.smoothCamera:key.keyboard.f7
 key_key.fullscreen:key.keyboard.f11
 key_key.spectatorOutlines:key.keyboard.unknown
 key_key.swapOffhand:key.keyboard.f
-key_key.saveToolbarActivator:key.keyboard.g
-key_key.loadToolbarActivator:key.keyboard.x
+key_key.saveToolbarActivator:key.keyboard.unknown
+key_key.loadToolbarActivator:key.keyboard.unknown
 key_key.advancements:key.keyboard.l
 key_key.hotbar.1:key.keyboard.q
 key_key.hotbar.2:key.keyboard.2
@@ -118,6 +118,10 @@ key_key.hotbar.6:key.keyboard.6
 key_key.hotbar.7:key.keyboard.7
 key_key.hotbar.8:key.keyboard.8
 key_key.hotbar.9:key.keyboard.9
+key_key.errorlib.ability_slot_0:key.keyboard.x
+key_key.errorlib.ability_slot_1:key.keyboard.c
+key_key.errorlib.ability_slot_2:key.keyboard.v
+key_key.errorlib.ability_slot_4:key.keyboard.n
 soundCategory_master:1.0
 soundCategory_music:0.0
 soundCategory_record:1.0

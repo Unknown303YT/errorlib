@@ -1,5 +1,19 @@
 {
   "creativetab.errorlib.error_tab": "Error: Core",
   "item.errorlib.corrupted_heart": "Corrupted Heart",
-  "item.errorlib.diamond_dagger": "Diamond Dagger"
+
+  "item.errorlib.wood_dagger": "Wood Dagger",
+  "item.errorlib.stone_dagger": "Stone Dagger",
+  "item.errorlib.iron_dagger": "Iron Dagger",
+  "item.errorlib.gold_dagger": "Gold Dagger",
+  "item.errorlib.diamond_dagger": "Diamond Dagger",
+  "item.errorlib.netherite_dagger": "Netherite Dagger",
+
+  "key.category.errorlib.abilities": "Abilities",
+
+  "key.errorlib.ability_slot_0": "Slot 1",
+  "key.errorlib.ability_slot_1": "Slot 2",
+  "key.errorlib.ability_slot_2": "Slot 3",
+  "key.errorlib.ability_slot_3": "Slot 4",
+  "key.errorlib.ability_slot_4": "Slot 5"
 }

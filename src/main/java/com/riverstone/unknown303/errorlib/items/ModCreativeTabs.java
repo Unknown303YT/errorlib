@@ -20,7 +20,12 @@ public class ModCreativeTabs {
                     () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.DIAMOND_DAGGER.get()))
                             .title(Component.translatable("creativetab.errorlib.error_tab"))
                             .displayItems((pParameters, pOutput) -> {
+                                pOutput.accept(ModItems.WOOD_DAGGER.get());
+                                pOutput.accept(ModItems.STONE_DAGGER.get());
+                                pOutput.accept(ModItems.IRON_DAGGER.get());
+                                pOutput.accept(ModItems.GOLD_DAGGER.get());
                                 pOutput.accept(ModItems.DIAMOND_DAGGER.get());
+                                pOutput.accept(ModItems.NETHERITE_DAGGER.get());
                             })
                             .build());
 

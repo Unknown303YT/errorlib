@@ -1,341 +1,266 @@
-[03Feb2025 17:12:34.136] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, MOD_DEV, --assetIndex, 5, --assetsDir, C:\Users\aidan\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.3.22, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412]
-[03Feb2025 17:12:34.146] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.12 by Eclipse Adoptium; OS Windows 10 arch amd64 version 10.0
-[03Feb2025 17:12:34.337] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
-[03Feb2025 17:12:34.433] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
-[03Feb2025 17:12:34.699] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6
-[03Feb2025 17:12:34.813] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/aidan/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
-[03Feb2025 17:12:34.855] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: NVIDIA GeForce RTX 4060/PCIe/SSE2 GL version 4.6.0 NVIDIA 572.16, NVIDIA Corporation
-[03Feb2025 17:12:35.280] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\aidan\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.3.22\9a1d96e9108940786d846c8cc0dac07100e79f56\javafmllanguage-1.20.1-47.3.22.jar is missing mods.toml file
-[03Feb2025 17:12:35.286] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\aidan\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.3.22\2529f2c27d8f8a63ee54efc81fdfc3cea2d43c8\lowcodelanguage-1.20.1-47.3.22.jar is missing mods.toml file
-[03Feb2025 17:12:35.293] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\aidan\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.3.22\2de14adfd8715f1956007499d8d75c6a4e6fa872\mclanguage-1.20.1-47.3.22.jar is missing mods.toml file
-[03Feb2025 17:12:35.300] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\aidan\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.3.22\cf26aeb747e0d323f8eed9b00ebfb783282d5837\fmlcore-1.20.1-47.3.22.jar is missing mods.toml file
-[03Feb2025 17:12:35.398] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[03Feb2025 17:12:37.238] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, C:\Users\aidan\.gradle\caches\forge_gradle\assets, --assetIndex, 5]
-[03Feb2025 17:12:42.486] [Datafixer Bootstrap/INFO] [com.mojang.datafixers.DataFixerBuilder/]: 188 Datafixer optimizations took 214 milliseconds
-[03Feb2025 17:12:45.026] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/aidan/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.22_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.22_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
-[03Feb2025 17:12:45.027] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/aidan/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.22_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.22_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
-[03Feb2025 17:12:45.048] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
-[03Feb2025 17:12:45.055] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
-[03Feb2025 17:12:45.199] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.1 build 7
-[03Feb2025 17:12:45.562] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.3.22, for MC 1.20.1 with MCP 20230612.114412
-[03Feb2025 17:12:45.566] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.3.22 Initialized
-[03Feb2025 17:12:46.899] [Render thread/INFO] [net.minecraftforge.gametest.ForgeGameTestHooks/]: Enabled Gametest Namespaces: [errorlib]
-[03Feb2025 17:12:47.036] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: mod_resources, vanilla, file/VanillaTweaks_rUnknown303v6.zip, file/PvP Pack v8.1.zip
-[03Feb2025 17:12:47.162] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
-[03Feb2025 17:12:47.282] [Worker-Main-5/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_all_no_pua-15.0.06.hex, loading
-[03Feb2025 17:12:47.451] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/panda/worried2.ogg does not exist, cannot add it to event minecraft:entity.panda.worried_ambient
-[03Feb2025 17:12:47.452] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/panda/worried3.ogg does not exist, cannot add it to event minecraft:entity.panda.worried_ambient
-[03Feb2025 17:12:47.452] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/panda/worried4.ogg does not exist, cannot add it to event minecraft:entity.panda.worried_ambient
-[03Feb2025 17:12:47.452] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/panda/worried5.ogg does not exist, cannot add it to event minecraft:entity.panda.worried_ambient
-[03Feb2025 17:12:47.452] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/panda/worried6.ogg does not exist, cannot add it to event minecraft:entity.panda.worried_ambient
-[03Feb2025 17:12:47.452] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat1.ogg does not exist, cannot add it to event minecraft:entity.horse.eat
-[03Feb2025 17:12:47.452] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat2.ogg does not exist, cannot add it to event minecraft:entity.horse.eat
-[03Feb2025 17:12:47.453] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat3.ogg does not exist, cannot add it to event minecraft:entity.horse.eat
-[03Feb2025 17:12:47.453] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat4.ogg does not exist, cannot add it to event minecraft:entity.horse.eat
-[03Feb2025 17:12:47.453] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat5.ogg does not exist, cannot add it to event minecraft:entity.horse.eat
-[03Feb2025 17:12:47.453] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat1.ogg does not exist, cannot add it to event minecraft:entity.mule.eat
-[03Feb2025 17:12:47.453] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat2.ogg does not exist, cannot add it to event minecraft:entity.mule.eat
-[03Feb2025 17:12:47.453] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat3.ogg does not exist, cannot add it to event minecraft:entity.mule.eat
-[03Feb2025 17:12:47.453] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat4.ogg does not exist, cannot add it to event minecraft:entity.mule.eat
-[03Feb2025 17:12:47.454] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat5.ogg does not exist, cannot add it to event minecraft:entity.mule.eat
-[03Feb2025 17:12:47.454] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat1.ogg does not exist, cannot add it to event minecraft:entity.donkey.eat
-[03Feb2025 17:12:47.454] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat2.ogg does not exist, cannot add it to event minecraft:entity.donkey.eat
-[03Feb2025 17:12:47.454] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat3.ogg does not exist, cannot add it to event minecraft:entity.donkey.eat
-[03Feb2025 17:12:47.454] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat4.ogg does not exist, cannot add it to event minecraft:entity.donkey.eat
-[03Feb2025 17:12:47.454] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat5.ogg does not exist, cannot add it to event minecraft:entity.donkey.eat
-[03Feb2025 17:12:47.455] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/cow/milk1.ogg does not exist, cannot add it to event minecraft:entity.cow.milk
-[03Feb2025 17:12:47.456] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/cow/milk2.ogg does not exist, cannot add it to event minecraft:entity.cow.milk
-[03Feb2025 17:12:47.456] [Worker-Main-2/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/cow/milk3.ogg does not exist, cannot add it to event minecraft:entity.cow.milk
-[03Feb2025 17:12:47.886] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: OUTDATED Current: 47.3.22 Target: 47.3.27
-[03Feb2025 17:12:51.212] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
-[03Feb2025 17:12:51.212] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
-[03Feb2025 17:12:51.296] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device OpenAL Soft on LG TV SSCR2 (NVIDIA High Definition Audio)
-[03Feb2025 17:12:51.297] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
-[03Feb2025 17:12:51.499] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x0 minecraft:textures/atlas/blocks.png-atlas
-[03Feb2025 17:12:51.515] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/signs.png-atlas
-[03Feb2025 17:12:51.515] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x0 minecraft:textures/atlas/banner_patterns.png-atlas
-[03Feb2025 17:12:51.516] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x0 minecraft:textures/atlas/shield_patterns.png-atlas
-[03Feb2025 17:12:51.517] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x0 minecraft:textures/atlas/armor_trims.png-atlas
-[03Feb2025 17:12:51.518] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/chest.png-atlas
-[03Feb2025 17:12:51.519] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x64x0 minecraft:textures/atlas/decorated_pot.png-atlas
-[03Feb2025 17:12:51.519] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/beds.png-atlas
-[03Feb2025 17:12:51.520] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/shulker_boxes.png-atlas
-[03Feb2025 17:12:51.880] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader particle could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.880] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader particle could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.880] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader particle could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:51.895] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_solid could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.895] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_solid could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.895] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_solid could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:51.898] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_cutout_mipped could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.898] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_cutout_mipped could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.898] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_cutout_mipped could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:51.900] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_cutout could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.900] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_cutout could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.901] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_cutout could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:51.902] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_translucent could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.903] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_translucent could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.903] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_translucent could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:51.908] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_armor_cutout_no_cull could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.908] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_armor_cutout_no_cull could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.909] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_armor_cutout_no_cull could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:51.911] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_solid could not find uniform named IViewRotMat in the specified shader program.
-[03Feb2025 17:12:51.911] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_solid could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.912] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_solid could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.912] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_solid could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:51.914] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_cutout could not find uniform named IViewRotMat in the specified shader program.
-[03Feb2025 17:12:51.914] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_cutout could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.915] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_cutout could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.915] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_cutout could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:51.917] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_cutout_no_cull could not find uniform named IViewRotMat in the specified shader program.
-[03Feb2025 17:12:51.917] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_cutout_no_cull could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.917] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_cutout_no_cull could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.918] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_cutout_no_cull could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:51.920] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_cutout_no_cull_z_offset could not find uniform named IViewRotMat in the specified shader program.
-[03Feb2025 17:12:51.920] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_cutout_no_cull_z_offset could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.920] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_cutout_no_cull_z_offset could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.920] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_cutout_no_cull_z_offset could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:51.923] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_item_entity_translucent_cull could not find uniform named IViewRotMat in the specified shader program.
-[03Feb2025 17:12:51.923] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_item_entity_translucent_cull could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.923] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_item_entity_translucent_cull could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.923] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_item_entity_translucent_cull could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:51.926] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_cull could not find uniform named IViewRotMat in the specified shader program.
-[03Feb2025 17:12:51.926] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_cull could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.926] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_cull could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.926] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_cull could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:51.928] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent could not find uniform named IViewRotMat in the specified shader program.
-[03Feb2025 17:12:51.929] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.929] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.929] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:51.931] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
-[03Feb2025 17:12:51.931] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.931] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.933] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_smooth_cutout could not find uniform named IViewRotMat in the specified shader program.
-[03Feb2025 17:12:51.933] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_smooth_cutout could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.934] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_smooth_cutout could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.934] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_smooth_cutout could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:51.935] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_beacon_beam could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.935] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_beacon_beam could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.936] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_beacon_beam could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:51.938] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_decal could not find uniform named IViewRotMat in the specified shader program.
-[03Feb2025 17:12:51.938] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_decal could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.938] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_decal could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.938] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_decal could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:51.941] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_no_outline could not find uniform named IViewRotMat in the specified shader program.
-[03Feb2025 17:12:51.941] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_no_outline could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.941] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_no_outline could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.941] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_no_outline could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:51.943] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_shadow could not find uniform named IViewRotMat in the specified shader program.
-[03Feb2025 17:12:51.944] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_shadow could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.944] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_shadow could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.944] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_shadow could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:51.947] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_eyes could not find uniform named IViewRotMat in the specified shader program.
-[03Feb2025 17:12:51.947] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_eyes could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.947] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_eyes could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.949] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_energy_swirl could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.949] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_energy_swirl could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.951] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_leash could not find uniform named IViewRotMat in the specified shader program.
-[03Feb2025 17:12:51.952] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_leash could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.952] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_leash could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.952] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_leash could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:51.957] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_armor_glint could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.957] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_armor_glint could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.959] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_armor_entity_glint could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.959] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_armor_entity_glint could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.961] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_glint_translucent could not find uniform named IViewRotMat in the specified shader program.
-[03Feb2025 17:12:51.961] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_glint_translucent could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.961] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_glint_translucent could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.963] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_glint could not find uniform named IViewRotMat in the specified shader program.
-[03Feb2025 17:12:51.964] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_glint could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.964] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_glint could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.966] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_glint_direct could not find uniform named IViewRotMat in the specified shader program.
-[03Feb2025 17:12:51.966] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_glint_direct could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.966] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_glint_direct could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.968] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_glint could not find uniform named IViewRotMat in the specified shader program.
-[03Feb2025 17:12:51.968] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_glint could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.968] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_glint could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.970] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_glint_direct could not find uniform named IViewRotMat in the specified shader program.
-[03Feb2025 17:12:51.970] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_glint_direct could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.970] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_glint_direct could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.973] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_text could not find uniform named IViewRotMat in the specified shader program.
-[03Feb2025 17:12:51.973] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_text could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.973] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_text could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.974] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_text could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:51.976] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_text_background could not find uniform named IViewRotMat in the specified shader program.
-[03Feb2025 17:12:51.976] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_text_background could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.976] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_text_background could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.976] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_text_background could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:51.978] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_text_intensity could not find uniform named IViewRotMat in the specified shader program.
-[03Feb2025 17:12:51.978] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_text_intensity could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.978] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_text_intensity could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.978] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_text_intensity could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:51.983] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_lightning could not find uniform named IViewRotMat in the specified shader program.
-[03Feb2025 17:12:51.983] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_lightning could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.983] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_lightning could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.985] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_tripwire could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.986] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_tripwire could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.986] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_tripwire could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:51.992] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_lines could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:51.992] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_lines could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:51.992] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_lines could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:52.002] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader forge:rendertype_entity_unlit_translucent could not find uniform named FogStart in the specified shader program.
-[03Feb2025 17:12:52.002] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader forge:rendertype_entity_unlit_translucent could not find uniform named FogEnd in the specified shader program.
-[03Feb2025 17:12:52.002] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader forge:rendertype_entity_unlit_translucent could not find uniform named FogColor in the specified shader program.
-[03Feb2025 17:12:52.029] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
-[03Feb2025 17:12:52.030] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
-[03Feb2025 17:12:52.031] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
-[03Feb2025 17:12:52.452] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient/]: Could not authorize you against Realms server: Invalid session id
-[03Feb2025 17:20:14.883] [Render thread/INFO] [net.minecraftforge.registries.GameData/REGISTRIES]: Injecting existing registry data into this CLIENT instance
-[03Feb2025 17:20:17.868] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 7 recipes
-[03Feb2025 17:20:17.993] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 1271 advancements
-[03Feb2025 17:20:18.613] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.20.1
-[03Feb2025 17:20:18.613] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
-[03Feb2025 17:20:19.036] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
-[03Feb2025 17:20:22.350] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[03Feb2025 17:20:22.350] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[03Feb2025 17:20:22.350] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[03Feb2025 17:20:22.351] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[03Feb2025 17:20:22.351] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[03Feb2025 17:20:22.351] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[03Feb2025 17:20:22.351] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[03Feb2025 17:20:22.562] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[03Feb2025 17:20:23.070] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 39%
-[03Feb2025 17:20:23.563] [Server thread/INFO] [net.minecraftforge.server.permission.PermissionAPI/]: Successfully initialized permission handler forge:default_handler
-[03Feb2025 17:20:23.565] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 97%
-[03Feb2025 17:20:23.565] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 4514 ms
-[03Feb2025 17:20:23.753] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing view distance to 12, from 10
-[03Feb2025 17:20:23.755] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 12, from 0
-[03Feb2025 17:20:23.869] [Render thread/WARN] [io.netty.util.internal.SystemPropertyUtil/]: Unable to parse the boolean system property 'java.net.preferIPv6Addresses':system - using the default value: false
-[03Feb2025 17:20:24.319] [Netty Local Client IO #0/INFO] [net.minecraftforge.network.NetworkHooks/]: Connected to a modded server.
-[03Feb2025 17:20:24.390] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[local:E:a7334a00] logged in with entity id 173 at (23.879087486871235, 85.0, 73.30000001192093)
-[03Feb2025 17:20:24.458] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev joined the game
-[03Feb2025 17:20:25.356] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 75 advancements
-[03Feb2025 17:20:30.104] [Server thread/WARN] [net.minecraft.server.MinecraftServer/]: Can't keep up! Is the server overloaded? Running 2041ms or 40 ticks behind
-[03Feb2025 17:20:42.256] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Summoned new Iron Golem]
-[03Feb2025 17:20:42.259] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Summoned new Iron Golem
-[03Feb2025 17:21:00.198] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Summoned new Iron Golem]
-[03Feb2025 17:21:00.202] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Summoned new Iron Golem
-[03Feb2025 17:21:55.472] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Survival Mode]
-[03Feb2025 17:21:55.474] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Set own game mode to Survival Mode
-[03Feb2025 17:22:05.703] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Saved screenshot as 2025-02-03_17.22.04.png
-[03Feb2025 17:22:06.699] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Creative Mode]
-[03Feb2025 17:22:06.700] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Set own game mode to Creative Mode
-[03Feb2025 17:22:26.492] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Summoned new Horse]
-[03Feb2025 17:22:26.502] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Summoned new Horse
-[03Feb2025 17:22:31.601] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Unable to play empty soundEvent: minecraft:entity.horse.eat
-[03Feb2025 17:23:00.425] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 92 advancements
-[03Feb2025 17:23:03.532] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Summoned new Horse]
-[03Feb2025 17:23:03.534] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Summoned new Horse
-[03Feb2025 17:23:16.743] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Summoned new Horse]
-[03Feb2025 17:23:16.744] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Summoned new Horse
-[03Feb2025 17:23:33.830] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Survival Mode]
-[03Feb2025 17:23:33.832] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Set own game mode to Survival Mode
-[03Feb2025 17:23:39.494] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set own game mode to Creative Mode]
-[03Feb2025 17:23:39.495] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Set own game mode to Creative Mode
-[03Feb2025 17:23:49.147] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Applied enchantment Sharpness 5 to Dev's item]
-[03Feb2025 17:23:49.147] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Applied enchantment Sharpness 5 to Dev's item
-[03Feb2025 17:23:58.979] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Applied enchantment Sweeping Edge 3 to Dev's item]
-[03Feb2025 17:23:58.980] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Applied enchantment Sweeping Edge 3 to Dev's item
-[03Feb2025 17:24:23.973] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 98 advancements
-[03Feb2025 17:24:32.906] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Set the time to 18000]
-[03Feb2025 17:24:32.909] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Set the time to 18000
-[03Feb2025 17:24:39.246] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Gamerule doMobSpawning is now set to: false]
-[03Feb2025 17:24:39.250] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Gamerule doMobSpawning is now set to: false
-[03Feb2025 17:24:45.533] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Summoned new Zombie]
-[03Feb2025 17:24:45.542] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Summoned new Zombie
-[03Feb2025 17:24:47.164] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[03Feb2025 17:24:47.178] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:overworld
-[03Feb2025 17:24:47.197] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_nether
-[03Feb2025 17:24:47.199] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_end
-[03Feb2025 17:24:51.485] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Summoned new Zombie]
-[03Feb2025 17:24:51.487] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Summoned new Zombie
-[03Feb2025 17:25:10.424] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev has made the advancement [Cover Me with Diamonds]
-[03Feb2025 17:25:10.433] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Dev has made the advancement [Cover Me with Diamonds]
-[03Feb2025 17:25:10.477] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 100 advancements
-[03Feb2025 17:25:45.157] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Unknown or incomplete command, see below for error
-[03Feb2025 17:25:45.157] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] ...armor.head<--[HERE]
-[03Feb2025 17:26:22.012] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Replaced a slot on Zombie with [Diamond Helmet]]
-[03Feb2025 17:26:22.019] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Replaced a slot on Zombie with [Diamond Helmet]
-[03Feb2025 17:26:35.857] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Replaced a slot on Zombie with [Diamond Chestplate]]
-[03Feb2025 17:26:35.858] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Replaced a slot on Zombie with [Diamond Chestplate]
-[03Feb2025 17:26:45.310] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Replaced a slot on Zombie with [Diamond Leggings]]
-[03Feb2025 17:26:45.312] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Replaced a slot on Zombie with [Diamond Leggings]
-[03Feb2025 17:26:53.481] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Replaced a slot on Zombie with [Diamond Boots]]
-[03Feb2025 17:26:53.483] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Replaced a slot on Zombie with [Diamond Boots]
-[03Feb2025 17:26:59.323] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Summoned new Zombie]
-[03Feb2025 17:26:59.324] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Summoned new Zombie
-[03Feb2025 17:27:01.963] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Replaced a slot on 2 entities with [Diamond Boots]]
-[03Feb2025 17:27:01.964] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Replaced a slot on 2 entities with [Diamond Boots]
-[03Feb2025 17:27:04.082] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Replaced a slot on 2 entities with [Diamond Helmet]]
-[03Feb2025 17:27:04.083] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Replaced a slot on 2 entities with [Diamond Helmet]
-[03Feb2025 17:27:06.436] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Replaced a slot on 2 entities with [Diamond Chestplate]]
-[03Feb2025 17:27:06.438] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Replaced a slot on 2 entities with [Diamond Chestplate]
-[03Feb2025 17:27:10.810] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Replaced a slot on 2 entities with [Diamond Leggings]]
-[03Feb2025 17:27:10.811] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Replaced a slot on 2 entities with [Diamond Leggings]
-[03Feb2025 17:27:22.502] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Teleported 2 entities to Dev]
-[03Feb2025 17:27:22.504] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Teleported 2 entities to Dev
-[03Feb2025 17:27:43.388] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev has made the advancement [Monster Hunter]
-[03Feb2025 17:27:43.399] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Dev has made the advancement [Monster Hunter]
-[03Feb2025 17:27:43.429] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 103 advancements
-[03Feb2025 17:31:26.082] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Gave 1 [Command Block] to Dev]
-[03Feb2025 17:31:26.090] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Gave 1 [Command Block] to Dev
-[03Feb2025 17:31:41.564] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[03Feb2025 17:31:41.575] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:overworld
-[03Feb2025 17:31:41.587] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_nether
-[03Feb2025 17:31:41.589] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_end
-[03Feb2025 17:31:44.664] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[03Feb2025 17:31:44.674] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:overworld
-[03Feb2025 17:31:44.684] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_nether
-[03Feb2025 17:31:44.685] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_end
-[03Feb2025 17:31:46.713] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[03Feb2025 17:31:46.723] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:overworld
-[03Feb2025 17:31:46.736] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_nether
-[03Feb2025 17:31:46.737] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_end
-[03Feb2025 17:31:48.314] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[03Feb2025 17:31:48.324] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:overworld
-[03Feb2025 17:31:48.334] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_nether
-[03Feb2025 17:31:48.335] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_end
-[03Feb2025 17:31:49.814] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[03Feb2025 17:31:49.825] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:overworld
-[03Feb2025 17:31:49.833] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_nether
-[03Feb2025 17:31:49.834] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_end
-[03Feb2025 17:31:51.214] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[03Feb2025 17:31:51.224] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:overworld
-[03Feb2025 17:31:51.234] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_nether
-[03Feb2025 17:31:51.235] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_end
-[03Feb2025 17:31:54.464] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[03Feb2025 17:31:54.474] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:overworld
-[03Feb2025 17:31:54.486] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_nether
-[03Feb2025 17:31:54.487] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_end
-[03Feb2025 17:32:34.319] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Command set: execute at Dev run summon minecraft:zombie ~ ~ ~
-[03Feb2025 17:32:34.964] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[03Feb2025 17:32:34.973] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:overworld
-[03Feb2025 17:32:34.980] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_nether
-[03Feb2025 17:32:34.981] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_end
-[03Feb2025 17:33:10.935] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Command set: item replace entity @e[type=zombie] armor.head
-[03Feb2025 17:33:11.465] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[03Feb2025 17:33:11.475] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:overworld
-[03Feb2025 17:33:11.482] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_nether
-[03Feb2025 17:33:11.483] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_end
-[03Feb2025 17:34:23.022] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Command set: execute at Dev run summon minecraft:zombie ~ ~ ~
-[03Feb2025 17:34:23.714] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[03Feb2025 17:34:23.723] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:overworld
-[03Feb2025 17:34:23.730] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_nether
-[03Feb2025 17:34:23.731] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_end
-[03Feb2025 17:34:30.565] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[03Feb2025 17:34:30.576] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:overworld
-[03Feb2025 17:34:30.583] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_nether
-[03Feb2025 17:34:30.584] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_end
-[03Feb2025 17:34:31.070] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Dev lost connection: Disconnected
-[03Feb2025 17:34:31.071] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev left the game
-[03Feb2025 17:34:31.080] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Stopping singleplayer server as player logged out
-[03Feb2025 17:34:31.130] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
-[03Feb2025 17:34:31.131] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
-[03Feb2025 17:34:31.131] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
-[03Feb2025 17:34:31.577] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:overworld
-[03Feb2025 17:34:31.897] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_nether
-[03Feb2025 17:34:31.898] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Tests]'/minecraft:the_end
-[03Feb2025 17:34:31.915] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (Tests): All chunks are saved
-[03Feb2025 17:34:31.916] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[03Feb2025 17:34:31.916] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[03Feb2025 17:34:31.916] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved
-[03Feb2025 17:34:33.894] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!
+[12Feb2025 17:29:51.364] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, MOD_DEV, --assetIndex, 5, --assetsDir, C:\Users\aidan\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.3.22, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412]
+[12Feb2025 17:29:51.374] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.13 by Eclipse Adoptium; OS Windows 10 arch amd64 version 10.0
+[12Feb2025 17:29:51.579] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
+[12Feb2025 17:29:51.743] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
+[12Feb2025 17:29:51.970] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6
+[12Feb2025 17:29:52.121] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/aidan/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
+[12Feb2025 17:29:52.184] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: NVIDIA GeForce GTX 670/PCIe/SSE2 GL version 4.6.0 NVIDIA 475.14, NVIDIA Corporation
+[12Feb2025 17:29:52.640] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\aidan\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.3.22\9a1d96e9108940786d846c8cc0dac07100e79f56\javafmllanguage-1.20.1-47.3.22.jar is missing mods.toml file
+[12Feb2025 17:29:52.650] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\aidan\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.3.22\2529f2c27d8f8a63ee54efc81fdfc3cea2d43c8\lowcodelanguage-1.20.1-47.3.22.jar is missing mods.toml file
+[12Feb2025 17:29:52.658] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\aidan\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.3.22\2de14adfd8715f1956007499d8d75c6a4e6fa872\mclanguage-1.20.1-47.3.22.jar is missing mods.toml file
+[12Feb2025 17:29:52.665] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\aidan\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.3.22\cf26aeb747e0d323f8eed9b00ebfb783282d5837\fmlcore-1.20.1-47.3.22.jar is missing mods.toml file
+[12Feb2025 17:29:52.843] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[12Feb2025 17:29:54.867] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, C:\Users\aidan\.gradle\caches\forge_gradle\assets, --assetIndex, 5]
+[12Feb2025 17:30:00.705] [Datafixer Bootstrap/INFO] [com.mojang.datafixers.DataFixerBuilder/]: 188 Datafixer optimizations took 238 milliseconds
+[12Feb2025 17:30:03.020] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/aidan/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.22_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.22_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[12Feb2025 17:30:03.021] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/aidan/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.22_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.3.22_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[12Feb2025 17:30:03.042] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[12Feb2025 17:30:03.052] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
+[12Feb2025 17:30:03.230] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.1 build 7
+[12Feb2025 17:30:03.622] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.3.22, for MC 1.20.1 with MCP 20230612.114412
+[12Feb2025 17:30:03.625] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.3.22 Initialized
+[12Feb2025 17:30:03.663] [modloading-worker-0/ERROR] [net.minecraftforge.fml.javafmlmod.FMLModContainer/LOADING]: Failed to create mod instance. ModID: errorlib, class com.riverstone.unknown303.errorlib.ErrorMod
+java.lang.ExceptionInInitializerError: null
+	at com.riverstone.unknown303.errorlib.ErrorMod.<init>(ErrorMod.java:40) ~[%23196!/:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[?:?]
+	at net.minecraftforge.fml.javafmlmod.FMLModContainer.constructMod(FMLModContainer.java:77) ~[javafmllanguage-1.20.1-47.3.22.jar%23192!/:?]
+	at net.minecraftforge.fml.ModContainer.lambda$buildTransitionHandler$4(ModContainer.java:124) ~[fmlcore-1.20.1-47.3.22.jar%23195!/:?]
+	at java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?]
+	at java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796) ~[?:?]
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373) ~[?:?]
+	at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182) ~[?:?]
+	at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655) ~[?:?]
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622) ~[?:?]
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) ~[?:?]
+Caused by: java.lang.NullPointerException: Cannot invoke "net.minecraftforge.registries.IForgeRegistry.getRegistryKey()" because "reg" is null
+	at net.minecraftforge.registries.DeferredRegister.<init>(DeferredRegister.java:164) ~[forge-1.20.1-47.3.22_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23190%23197!/:?]
+	at net.minecraftforge.registries.DeferredRegister.create(DeferredRegister.java:68) ~[forge-1.20.1-47.3.22_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23190%23197!/:?]
+	at com.riverstone.unknown303.errorlib.ability.ErrorAbilities.<clinit>(ErrorAbilities.java:16) ~[%23196!/:?]
+	... 15 more
+[12Feb2025 17:30:03.935] [Render thread/FATAL] [net.minecraftforge.fml.ModLoader/LOADING]: Failed to complete lifecycle event CONSTRUCT, 1 errors found
+[12Feb2025 17:30:04.060] [Render thread/WARN] [net.minecraft.client.Options/]: Removed resource pack mod_resources from options because it doesn't seem to exist anymore
+[12Feb2025 17:30:04.141] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.sound.SoundEngineLoadEvent to a broken mod state
+[12Feb2025 17:30:04.284] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.RegisterColorHandlersEvent$Block to a broken mod state
+[12Feb2025 17:30:04.287] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.RegisterColorHandlersEvent$Item to a broken mod state
+[12Feb2025 17:30:04.483] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.RenderLevelStageEvent$RegisterStageEvent to a broken mod state
+[12Feb2025 17:30:04.587] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.RegisterParticleProvidersEvent to a broken mod state
+[12Feb2025 17:30:04.651] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.RegisterClientReloadListenersEvent to a broken mod state
+[12Feb2025 17:30:04.652] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.EntityRenderersEvent$RegisterLayerDefinitions to a broken mod state
+[12Feb2025 17:30:04.652] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.EntityRenderersEvent$RegisterRenderers to a broken mod state
+[12Feb2025 17:30:04.654] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.RegisterTextureAtlasSpriteLoadersEvent to a broken mod state
+[12Feb2025 17:30:04.655] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.RegisterClientTooltipComponentFactoriesEvent to a broken mod state
+[12Feb2025 17:30:04.656] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.RegisterEntitySpectatorShadersEvent to a broken mod state
+[12Feb2025 17:30:04.656] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.RegisterKeyMappingsEvent to a broken mod state
+[12Feb2025 17:30:04.660] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.RegisterRecipeBookCategoriesEvent to a broken mod state
+[12Feb2025 17:30:04.669] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.RegisterGuiOverlaysEvent to a broken mod state
+[12Feb2025 17:30:04.680] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.RegisterDimensionSpecialEffectsEvent to a broken mod state
+[12Feb2025 17:30:04.681] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.RegisterNamedRenderTypesEvent to a broken mod state
+[12Feb2025 17:30:04.682] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.RegisterColorHandlersEvent$ColorResolvers to a broken mod state
+[12Feb2025 17:30:04.684] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.RegisterItemDecorationsEvent to a broken mod state
+[12Feb2025 17:30:04.693] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.RegisterPresetEditorsEvent to a broken mod state
+[12Feb2025 17:30:04.813] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: vanilla, file/VanillaTweaks_rUnknown303v6.zip, file/PvP Pack v8.1.zip
+[12Feb2025 17:30:04.955] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.ModelEvent$RegisterGeometryLoaders to a broken mod state
+[12Feb2025 17:30:05.034] [Worker-Main-7/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_all_no_pua-15.0.06.hex, loading
+[12Feb2025 17:30:05.263] [Worker-Main-3/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/panda/worried2.ogg does not exist, cannot add it to event minecraft:entity.panda.worried_ambient
+[12Feb2025 17:30:05.263] [Worker-Main-3/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/panda/worried3.ogg does not exist, cannot add it to event minecraft:entity.panda.worried_ambient
+[12Feb2025 17:30:05.263] [Worker-Main-3/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/panda/worried4.ogg does not exist, cannot add it to event minecraft:entity.panda.worried_ambient
+[12Feb2025 17:30:05.264] [Worker-Main-3/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/panda/worried5.ogg does not exist, cannot add it to event minecraft:entity.panda.worried_ambient
+[12Feb2025 17:30:05.264] [Worker-Main-3/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/panda/worried6.ogg does not exist, cannot add it to event minecraft:entity.panda.worried_ambient
+[12Feb2025 17:30:05.264] [Worker-Main-3/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat1.ogg does not exist, cannot add it to event minecraft:entity.horse.eat
+[12Feb2025 17:30:05.264] [Worker-Main-3/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat2.ogg does not exist, cannot add it to event minecraft:entity.horse.eat
+[12Feb2025 17:30:05.264] [Worker-Main-3/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat3.ogg does not exist, cannot add it to event minecraft:entity.horse.eat
+[12Feb2025 17:30:05.264] [Worker-Main-3/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat4.ogg does not exist, cannot add it to event minecraft:entity.horse.eat
+[12Feb2025 17:30:05.265] [Worker-Main-3/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat5.ogg does not exist, cannot add it to event minecraft:entity.horse.eat
+[12Feb2025 17:30:05.265] [Worker-Main-3/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat1.ogg does not exist, cannot add it to event minecraft:entity.mule.eat
+[12Feb2025 17:30:05.265] [Worker-Main-3/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat2.ogg does not exist, cannot add it to event minecraft:entity.mule.eat
+[12Feb2025 17:30:05.265] [Worker-Main-3/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat3.ogg does not exist, cannot add it to event minecraft:entity.mule.eat
+[12Feb2025 17:30:05.265] [Worker-Main-3/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat4.ogg does not exist, cannot add it to event minecraft:entity.mule.eat
+[12Feb2025 17:30:05.265] [Worker-Main-3/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat5.ogg does not exist, cannot add it to event minecraft:entity.mule.eat
+[12Feb2025 17:30:05.265] [Worker-Main-3/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat1.ogg does not exist, cannot add it to event minecraft:entity.donkey.eat
+[12Feb2025 17:30:05.266] [Worker-Main-3/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat2.ogg does not exist, cannot add it to event minecraft:entity.donkey.eat
+[12Feb2025 17:30:05.266] [Worker-Main-3/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat3.ogg does not exist, cannot add it to event minecraft:entity.donkey.eat
+[12Feb2025 17:30:05.266] [Worker-Main-3/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat4.ogg does not exist, cannot add it to event minecraft:entity.donkey.eat
+[12Feb2025 17:30:05.266] [Worker-Main-3/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/horse/eat5.ogg does not exist, cannot add it to event minecraft:entity.donkey.eat
+[12Feb2025 17:30:05.267] [Worker-Main-3/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/cow/milk1.ogg does not exist, cannot add it to event minecraft:entity.cow.milk
+[12Feb2025 17:30:05.267] [Worker-Main-3/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/cow/milk2.ogg does not exist, cannot add it to event minecraft:entity.cow.milk
+[12Feb2025 17:30:05.267] [Worker-Main-3/WARN] [net.minecraft.client.sounds.SoundManager/]: File minecraft:sounds/mob/cow/milk3.ogg does not exist, cannot add it to event minecraft:entity.cow.milk
+[12Feb2025 17:30:06.840] [Worker-Main-2/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.ModelEvent$RegisterAdditional to a broken mod state
+[12Feb2025 17:30:07.607] [Worker-Main-2/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.ModelEvent$ModifyBakingResult to a broken mod state
+[12Feb2025 17:30:07.809] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
+[12Feb2025 17:30:07.810] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[12Feb2025 17:30:08.030] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device OpenAL Soft on Speakers (VIA HD Audio(Win 10))
+[12Feb2025 17:30:08.031] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
+[12Feb2025 17:30:08.031] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.sound.SoundEngineLoadEvent to a broken mod state
+[12Feb2025 17:30:08.162] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x0 minecraft:textures/atlas/blocks.png-atlas
+[12Feb2025 17:30:08.170] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.TextureStitchEvent$Post to a broken mod state
+[12Feb2025 17:30:08.171] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/signs.png-atlas
+[12Feb2025 17:30:08.171] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.TextureStitchEvent$Post to a broken mod state
+[12Feb2025 17:30:08.171] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x0 minecraft:textures/atlas/banner_patterns.png-atlas
+[12Feb2025 17:30:08.172] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.TextureStitchEvent$Post to a broken mod state
+[12Feb2025 17:30:08.172] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x0 minecraft:textures/atlas/shield_patterns.png-atlas
+[12Feb2025 17:30:08.173] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.TextureStitchEvent$Post to a broken mod state
+[12Feb2025 17:30:08.173] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x0 minecraft:textures/atlas/armor_trims.png-atlas
+[12Feb2025 17:30:08.175] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.TextureStitchEvent$Post to a broken mod state
+[12Feb2025 17:30:08.175] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/chest.png-atlas
+[12Feb2025 17:30:08.177] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.TextureStitchEvent$Post to a broken mod state
+[12Feb2025 17:30:08.177] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x64x0 minecraft:textures/atlas/decorated_pot.png-atlas
+[12Feb2025 17:30:08.178] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.TextureStitchEvent$Post to a broken mod state
+[12Feb2025 17:30:08.178] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/shulker_boxes.png-atlas
+[12Feb2025 17:30:08.178] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.TextureStitchEvent$Post to a broken mod state
+[12Feb2025 17:30:08.178] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x0 minecraft:textures/atlas/beds.png-atlas
+[12Feb2025 17:30:08.179] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.TextureStitchEvent$Post to a broken mod state
+[12Feb2025 17:30:08.179] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.ModelEvent$BakingCompleted to a broken mod state
+[12Feb2025 17:30:08.308] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.EntityRenderersEvent$CreateSkullModels to a broken mod state
+[12Feb2025 17:30:08.323] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.EntityRenderersEvent$CreateSkullModels to a broken mod state
+[12Feb2025 17:30:08.466] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.EntityRenderersEvent$CreateSkullModels to a broken mod state
+[12Feb2025 17:30:08.473] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.EntityRenderersEvent$CreateSkullModels to a broken mod state
+[12Feb2025 17:30:08.475] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.EntityRenderersEvent$CreateSkullModels to a broken mod state
+[12Feb2025 17:30:08.475] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.EntityRenderersEvent$CreateSkullModels to a broken mod state
+[12Feb2025 17:30:08.478] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.EntityRenderersEvent$CreateSkullModels to a broken mod state
+[12Feb2025 17:30:08.480] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.EntityRenderersEvent$CreateSkullModels to a broken mod state
+[12Feb2025 17:30:08.480] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.EntityRenderersEvent$CreateSkullModels to a broken mod state
+[12Feb2025 17:30:08.481] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.EntityRenderersEvent$CreateSkullModels to a broken mod state
+[12Feb2025 17:30:08.487] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.EntityRenderersEvent$CreateSkullModels to a broken mod state
+[12Feb2025 17:30:08.488] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.EntityRenderersEvent$CreateSkullModels to a broken mod state
+[12Feb2025 17:30:08.494] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.EntityRenderersEvent$CreateSkullModels to a broken mod state
+[12Feb2025 17:30:08.498] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.EntityRenderersEvent$CreateSkullModels to a broken mod state
+[12Feb2025 17:30:08.498] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.EntityRenderersEvent$CreateSkullModels to a broken mod state
+[12Feb2025 17:30:08.501] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.EntityRenderersEvent$CreateSkullModels to a broken mod state
+[12Feb2025 17:30:08.502] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.EntityRenderersEvent$CreateSkullModels to a broken mod state
+[12Feb2025 17:30:08.502] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.EntityRenderersEvent$CreateSkullModels to a broken mod state
+[12Feb2025 17:30:08.502] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.EntityRenderersEvent$CreateSkullModels to a broken mod state
+[12Feb2025 17:30:08.511] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.EntityRenderersEvent$CreateSkullModels to a broken mod state
+[12Feb2025 17:30:08.512] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.EntityRenderersEvent$CreateSkullModels to a broken mod state
+[12Feb2025 17:30:08.513] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.EntityRenderersEvent$AddLayers to a broken mod state
+[12Feb2025 17:30:08.516] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader particle could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.516] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader particle could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.516] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader particle could not find uniform named FogColor in the specified shader program.
+[12Feb2025 17:30:08.530] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_solid could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.530] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_solid could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.530] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_solid could not find uniform named FogColor in the specified shader program.
+[12Feb2025 17:30:08.533] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_cutout_mipped could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.533] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_cutout_mipped could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.533] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_cutout_mipped could not find uniform named FogColor in the specified shader program.
+[12Feb2025 17:30:08.536] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_cutout could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.536] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_cutout could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.536] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_cutout could not find uniform named FogColor in the specified shader program.
+[12Feb2025 17:30:08.538] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_translucent could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.538] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_translucent could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.538] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_translucent could not find uniform named FogColor in the specified shader program.
+[12Feb2025 17:30:08.543] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_armor_cutout_no_cull could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.543] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_armor_cutout_no_cull could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.543] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_armor_cutout_no_cull could not find uniform named FogColor in the specified shader program.
+[12Feb2025 17:30:08.546] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_solid could not find uniform named IViewRotMat in the specified shader program.
+[12Feb2025 17:30:08.546] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_solid could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.546] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_solid could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.546] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_solid could not find uniform named FogColor in the specified shader program.
+[12Feb2025 17:30:08.549] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_cutout could not find uniform named IViewRotMat in the specified shader program.
+[12Feb2025 17:30:08.549] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_cutout could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.549] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_cutout could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.549] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_cutout could not find uniform named FogColor in the specified shader program.
+[12Feb2025 17:30:08.551] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_cutout_no_cull could not find uniform named IViewRotMat in the specified shader program.
+[12Feb2025 17:30:08.552] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_cutout_no_cull could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.552] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_cutout_no_cull could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.552] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_cutout_no_cull could not find uniform named FogColor in the specified shader program.
+[12Feb2025 17:30:08.555] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_cutout_no_cull_z_offset could not find uniform named IViewRotMat in the specified shader program.
+[12Feb2025 17:30:08.555] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_cutout_no_cull_z_offset could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.555] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_cutout_no_cull_z_offset could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.555] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_cutout_no_cull_z_offset could not find uniform named FogColor in the specified shader program.
+[12Feb2025 17:30:08.558] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_item_entity_translucent_cull could not find uniform named IViewRotMat in the specified shader program.
+[12Feb2025 17:30:08.558] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_item_entity_translucent_cull could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.558] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_item_entity_translucent_cull could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.558] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_item_entity_translucent_cull could not find uniform named FogColor in the specified shader program.
+[12Feb2025 17:30:08.561] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_cull could not find uniform named IViewRotMat in the specified shader program.
+[12Feb2025 17:30:08.561] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_cull could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.561] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_cull could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.561] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_cull could not find uniform named FogColor in the specified shader program.
+[12Feb2025 17:30:08.563] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent could not find uniform named IViewRotMat in the specified shader program.
+[12Feb2025 17:30:08.564] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.564] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.564] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent could not find uniform named FogColor in the specified shader program.
+[12Feb2025 17:30:08.566] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[12Feb2025 17:30:08.566] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.582] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.585] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_smooth_cutout could not find uniform named IViewRotMat in the specified shader program.
+[12Feb2025 17:30:08.585] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_smooth_cutout could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.585] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_smooth_cutout could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.585] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_smooth_cutout could not find uniform named FogColor in the specified shader program.
+[12Feb2025 17:30:08.587] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_beacon_beam could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.587] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_beacon_beam could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.587] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_beacon_beam could not find uniform named FogColor in the specified shader program.
+[12Feb2025 17:30:08.590] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_decal could not find uniform named IViewRotMat in the specified shader program.
+[12Feb2025 17:30:08.590] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_decal could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.590] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_decal could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.590] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_decal could not find uniform named FogColor in the specified shader program.
+[12Feb2025 17:30:08.592] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_no_outline could not find uniform named IViewRotMat in the specified shader program.
+[12Feb2025 17:30:08.593] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_no_outline could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.593] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_no_outline could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.593] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_no_outline could not find uniform named FogColor in the specified shader program.
+[12Feb2025 17:30:08.595] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_shadow could not find uniform named IViewRotMat in the specified shader program.
+[12Feb2025 17:30:08.595] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_shadow could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.596] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_shadow could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.596] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_shadow could not find uniform named FogColor in the specified shader program.
+[12Feb2025 17:30:08.599] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_eyes could not find uniform named IViewRotMat in the specified shader program.
+[12Feb2025 17:30:08.600] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_eyes could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.600] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_eyes could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.602] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_energy_swirl could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.602] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_energy_swirl could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.607] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_leash could not find uniform named IViewRotMat in the specified shader program.
+[12Feb2025 17:30:08.607] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_leash could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.607] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_leash could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.607] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_leash could not find uniform named FogColor in the specified shader program.
+[12Feb2025 17:30:08.611] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_armor_glint could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.611] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_armor_glint could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.613] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_armor_entity_glint could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.613] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_armor_entity_glint could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.615] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_glint_translucent could not find uniform named IViewRotMat in the specified shader program.
+[12Feb2025 17:30:08.615] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_glint_translucent could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.615] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_glint_translucent could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.617] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_glint could not find uniform named IViewRotMat in the specified shader program.
+[12Feb2025 17:30:08.617] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_glint could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.617] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_glint could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.619] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_glint_direct could not find uniform named IViewRotMat in the specified shader program.
+[12Feb2025 17:30:08.619] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_glint_direct could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.619] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_glint_direct could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.621] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_glint could not find uniform named IViewRotMat in the specified shader program.
+[12Feb2025 17:30:08.621] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_glint could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.621] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_glint could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.623] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_glint_direct could not find uniform named IViewRotMat in the specified shader program.
+[12Feb2025 17:30:08.623] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_glint_direct could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.623] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_glint_direct could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.625] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_text could not find uniform named IViewRotMat in the specified shader program.
+[12Feb2025 17:30:08.625] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_text could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.625] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_text could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.625] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_text could not find uniform named FogColor in the specified shader program.
+[12Feb2025 17:30:08.626] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_text_background could not find uniform named IViewRotMat in the specified shader program.
+[12Feb2025 17:30:08.626] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_text_background could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.626] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_text_background could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.627] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_text_background could not find uniform named FogColor in the specified shader program.
+[12Feb2025 17:30:08.628] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_text_intensity could not find uniform named IViewRotMat in the specified shader program.
+[12Feb2025 17:30:08.629] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_text_intensity could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.629] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_text_intensity could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.629] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_text_intensity could not find uniform named FogColor in the specified shader program.
+[12Feb2025 17:30:08.633] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_lightning could not find uniform named IViewRotMat in the specified shader program.
+[12Feb2025 17:30:08.633] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_lightning could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.633] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_lightning could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.635] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_tripwire could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.636] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_tripwire could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.636] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_tripwire could not find uniform named FogColor in the specified shader program.
+[12Feb2025 17:30:08.640] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_lines could not find uniform named FogStart in the specified shader program.
+[12Feb2025 17:30:08.640] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_lines could not find uniform named FogEnd in the specified shader program.
+[12Feb2025 17:30:08.640] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_lines could not find uniform named FogColor in the specified shader program.
+[12Feb2025 17:30:08.646] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.RegisterShadersEvent to a broken mod state
+[12Feb2025 17:30:08.668] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
+[12Feb2025 17:30:08.669] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.TextureStitchEvent$Post to a broken mod state
+[12Feb2025 17:30:08.670] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
+[12Feb2025 17:30:08.671] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.TextureStitchEvent$Post to a broken mod state
+[12Feb2025 17:30:08.671] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[12Feb2025 17:30:08.671] [Render thread/ERROR] [net.minecraftforge.fml.ModLoader/]: Cowardly refusing to send event net.minecraftforge.client.event.TextureStitchEvent$Post to a broken mod state
+[12Feb2025 17:30:08.837] [Render thread/FATAL] [net.minecraftforge.common.ForgeMod/]: Preparing crash report with UUID 38a4beb2-ec84-49a9-933e-7a93167a89e0
+[12Feb2025 17:30:08.837] [Render thread/FATAL] [net.minecraftforge.client.loading.ClientModLoader/]: Crash report saved to .\crash-reports\crash-2025-02-12_17.30.08-fml.txt
+[12Feb2025 17:30:08.840] [Render thread/FATAL] [net.minecraftforge.common.ForgeMod/]: Preparing crash report with UUID d278e5fc-58fd-407d-be32-c444f7f0be24
+[12Feb2025 17:50:29.692] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!

@@ -22,7 +22,6 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
-        this.tag(ItemTags.SWORDS)
-                .add(ModItems.DIAMOND_DAGGER.get());
+
     }
 }
