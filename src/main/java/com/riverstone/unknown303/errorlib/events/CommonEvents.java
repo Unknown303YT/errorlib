@@ -72,12 +72,12 @@ public class CommonEvents {
             for (Ability ability : ErrorHelpers.REGISTRY_HELPER.getValidRegistrations(ErrorRegistries.ABILITIES.get())) {
                 if (ability.isAvailable(player)) {
                     abilities.unlockAbility(ability);
+                } else {
+                    abilities.lockAbility(ability);
                 }
             }
 
-            for (Ability ability : abilities.getEnabledAbilities()) {
-                ability.tick(level, player);
-            }
+            abilities.tickAbilities(player, level);
         });
     }
 }
