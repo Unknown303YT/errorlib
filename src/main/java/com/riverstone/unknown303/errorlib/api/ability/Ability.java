@@ -55,7 +55,7 @@ public abstract class Ability {
     }
 
     public static enum AbilityType {
-        ACTION,
+        INSTANT,
         HELD,
         TOGGLE,
         CONSTANT;
