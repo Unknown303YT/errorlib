@@ -50,16 +50,11 @@ public class CommonEvents {
     @SubscribeEvent
     public static void playerVisibility(LivingEvent.LivingVisibilityEvent event) {
         if (event.getEntity() instanceof Player player) {
-            LazyOptional<Abilities> ABILITIES_CAP = player.getCapability(PlayerAbilitiesProvider.PLAYER_ABILITIES);
-            if (!ABILITIES_CAP.isPresent()) {
-                return;
-            }
-            IllegalStateException exception = new IllegalStateException("Abilities Player Capability not available but is marked as present.");
-            Abilities playerAbilities = ABILITIES_CAP.orElseThrow(() -> exception);
-
-            if (playerAbilities.isAbilityEnabled(InvisibilityAbility.class)) {
-                event.modifyVisibility(0D);
-            }
+            player.getCapability(PlayerAbilitiesProvider.PLAYER_ABILITIES).ifPresent(abilities -> {
+                if (abilities.isAbilityEnabled(InvisibilityAbility.class)) {
+                    event.modifyVisibility(0D);
+                }
+            });
         }
     }
 

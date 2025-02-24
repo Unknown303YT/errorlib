@@ -19,11 +19,11 @@ public abstract class Ability {
         this.origin = origin;
     }
 
-    public abstract void enable(Level level, Player owner);
+    public abstract void enable(Player owner, Level level);
 
-    public abstract void tick(Level level, Player owner);
+    public abstract void tick(Player owner, Level level);
 
-    public abstract void disable(Level level, Player owner);
+    public abstract void disable(Player owner, Level level);
 
     public boolean isAvailable(Player player) {
         return this.origin.isAvailable(player);

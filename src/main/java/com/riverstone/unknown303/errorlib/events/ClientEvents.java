@@ -27,68 +27,20 @@ public class ClientEvents {
         @SubscribeEvent
         public static void renderEntity(RenderLivingEvent.Pre<?, ?> event) {
             if (event.getEntity() instanceof Player player) {
-                LazyOptional<Abilities> ABILITIES_CAP = player.getCapability(PlayerAbilitiesProvider.PLAYER_ABILITIES);
-                if (!ABILITIES_CAP.isPresent()) {
-                    return;
-                }
-                IllegalStateException exception = new IllegalStateException("Abilities Player Capability not available but is marked as present.");
-                Abilities playerAbilities = ABILITIES_CAP.orElseThrow(() -> exception);
-
-                if (playerAbilities.isAbilityEnabled(InvisibilityAbility.class)) {
-                    event.setCanceled(true);
-                }
+                player.getCapability(PlayerAbilitiesProvider.PLAYER_ABILITIES).ifPresent(abilities -> {
+                    if (abilities.isAbilityEnabled(InvisibilityAbility.class)) {
+                        event.setCanceled(true);
+                    }
+                });
             }
         }
 
         @SubscribeEvent
         public static void keyPressed(InputEvent.Key event) {
             Player player = Objects.requireNonNull(Minecraft.getInstance().player);
-            Abilities playerAbilities = player.getCapability(PlayerAbilitiesProvider.PLAYER_ABILITIES)
-                    .orElseThrow(() -> new IllegalStateException("Player " + player.getName().getString() + " has no Abilities"));
-
-            switch (playerAbilities.getEnabledAbilities().size()) {
-                case 1 -> {
-                    if (ErrorKeybinds.KEY_ABILITY_SLOT_0.consumeClick()) {
-                        playerAbilities.toggleAbility(playerAbilities.getAvailableAbilities().get(0));
-                    }
-                } case 2 -> {
-                    if (ErrorKeybinds.KEY_ABILITY_SLOT_0.consumeClick()) {
-                        playerAbilities.toggleAbility(playerAbilities.getAvailableAbilities().get(0));
-                    } else if (ErrorKeybinds.KEY_ABILITY_SLOT_1.consumeClick()) {
-                        playerAbilities.toggleAbility(playerAbilities.getAvailableAbilities().get(1));
-                    }
-                } case 3 -> {
-                    if (ErrorKeybinds.KEY_ABILITY_SLOT_0.consumeClick()) {
-                        playerAbilities.toggleAbility(playerAbilities.getAvailableAbilities().get(0));
-                    } else if (ErrorKeybinds.KEY_ABILITY_SLOT_1.consumeClick()) {
-                        playerAbilities.toggleAbility(playerAbilities.getAvailableAbilities().get(1));
-                    } else if (ErrorKeybinds.KEY_ABILITY_SLOT_2.consumeClick()) {
-                        playerAbilities.toggleAbility(playerAbilities.getAvailableAbilities().get(2));
-                    }
-                } case 4 -> {
-                    if (ErrorKeybinds.KEY_ABILITY_SLOT_0.consumeClick()) {
-                        playerAbilities.toggleAbility(playerAbilities.getAvailableAbilities().get(0));
-                    } else if (ErrorKeybinds.KEY_ABILITY_SLOT_1.consumeClick()) {
-                        playerAbilities.toggleAbility(playerAbilities.getAvailableAbilities().get(1));
-                    } else if (ErrorKeybinds.KEY_ABILITY_SLOT_2.consumeClick()) {
-                        playerAbilities.toggleAbility(playerAbilities.getAvailableAbilities().get(2));
-                    } else if (ErrorKeybinds.KEY_ABILITY_SLOT_3.consumeClick()) {
-                        playerAbilities.toggleAbility(playerAbilities.getAvailableAbilities().get(3));
-                    }
-                } case 5 -> {
-                    if (ErrorKeybinds.KEY_ABILITY_SLOT_0.consumeClick()) {
-                        playerAbilities.toggleAbility(playerAbilities.getAvailableAbilities().get(0));
-                    } else if (ErrorKeybinds.KEY_ABILITY_SLOT_1.consumeClick()) {
-                        playerAbilities.toggleAbility(playerAbilities.getAvailableAbilities().get(1));
-                    } else if (ErrorKeybinds.KEY_ABILITY_SLOT_2.consumeClick()) {
-                        playerAbilities.toggleAbility(playerAbilities.getAvailableAbilities().get(2));
-                    } else if (ErrorKeybinds.KEY_ABILITY_SLOT_3.consumeClick()) {
-                        playerAbilities.toggleAbility(playerAbilities.getAvailableAbilities().get(3));
-                    } else if (ErrorKeybinds.KEY_ABILITY_SLOT_4.consumeClick()) {
-                        playerAbilities.toggleAbility(playerAbilities.getAvailableAbilities().get(4));
-                    }
-                }
-            }
+            player.getCapability(PlayerAbilitiesProvider.PLAYER_ABILITIES).ifPresent(abilities -> {
+                abilities.delegateAbilityKeybinds(player);
+            });
         }
     }
 

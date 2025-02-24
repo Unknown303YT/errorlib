@@ -12,11 +12,11 @@ public class InvisibilityAbility extends Ability {
     }
 
     @Override
-    public void enable(Level level, Player owner) {}
+    public void enable(Player owner, Level level) {}
 
     @Override
-    public void tick(Level level, Player owner) {}
+    public void tick(Player owner, Level level) {}
 
     @Override
-    public void disable(Level level, Player owner) {}
+    public void disable(Player owner, Level level) {}
 }
