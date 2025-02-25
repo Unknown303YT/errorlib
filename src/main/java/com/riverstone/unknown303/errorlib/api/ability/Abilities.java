@@ -94,7 +94,7 @@ public class Abilities {
         int count = pTag.getInt("count");
         unlockedAbilities.clear();
         for (int i = 0; i < count; i++) {
-            unlockedAbilities.add(i, Ability.fromString("ability" + i));
+            unlockedAbilities.add(i, Ability.fromString(pTag.getString("ability" + i));
         }
     }
 
@@ -102,7 +102,7 @@ public class Abilities {
         int count = pTag.getInt("count");
         availableAbilities.clear();
         for (int i = 0; i < count; i++) {
-            availableAbilities.add(i, Ability.fromString("ability" + i));
+            availableAbilities.add(i, Ability.fromString(pTag.getString("ability" + i));
         }
     }
 
@@ -110,7 +110,7 @@ public class Abilities {
         int count = pTag.getInt("count");
         enabledAbilities.clear();
         for (int i = 0; i < count; i++) {
-            enabledAbilities.add(i, Ability.fromString("ability" + i));
+            enabledAbilities.add(i, Ability.fromString(pTag.getString("ability" + i));
         }
     }
 
