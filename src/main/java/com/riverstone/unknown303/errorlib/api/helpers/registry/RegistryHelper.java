@@ -29,8 +29,8 @@ public class RegistryHelper extends ErrorLibHelper {
      * @param type Used to set the class the {@link IForgeRegistry<T> IForgeRegistry} handles.
      */
     public <T> Supplier<IForgeRegistry<T>> createRegistry(ResourceLocation registryId, Class<T> type) {
-        ResourceKey<Registry<T>> registryKey = key(registryId, type);
-        DeferredRegister<T> REGISTRY_MAKER = DeferredRegister.create(registryKey, registryId.getNamespace());
+//        ResourceKey<Registry<T>> registryKey = key(registryId, type);
+        DeferredRegister<T> REGISTRY_MAKER = DeferredRegister.create(registryId, registryId.getNamespace());
         Supplier<IForgeRegistry<T>> REGISTRY = REGISTRY_MAKER.makeRegistry(RegistryBuilder::new);
         deferredRegisters.add(REGISTRY_MAKER);
         return REGISTRY;
