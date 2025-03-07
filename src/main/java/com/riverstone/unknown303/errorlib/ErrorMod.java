@@ -32,7 +32,7 @@ public class ErrorMod {
 
     public ErrorMod(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
-        ErrorHelpers.REGISTRY_HELPER.register(modEventBus);
+        ErrorHelpers.MOD_INFO.eventBus(modEventBus);
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
