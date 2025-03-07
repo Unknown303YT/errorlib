@@ -10,16 +10,18 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.RegistryBuilder;
+import net.minecraftforge.registries.RegistryManager;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
 public class RegistryHelper extends ErrorLibHelper {
-    List<DeferredRegister<?>> deferredRegisters = new ArrayList<>();
+    List<RegistryBuilder<?>> registryBuilders = new ArrayList<>();
 
     public RegistryHelper(ModInfo modInfo) {
         super(modInfo);
+        this.getEventBus().addListener(this::register);
     }
 
     /**
@@ -30,10 +32,13 @@ public class RegistryHelper extends ErrorLibHelper {
      */
     public <T> Supplier<IForgeRegistry<T>> createRegistry(ResourceLocation registryId, Class<T> type) {
 //        ResourceKey<Registry<T>> registryKey = key(registryId, type);
-        DeferredRegister<T> REGISTRY_MAKER = DeferredRegister.create(registryId, registryId.getNamespace());
-        Supplier<IForgeRegistry<T>> REGISTRY = REGISTRY_MAKER.makeRegistry(RegistryBuilder::new);
-        deferredRegisters.add(REGISTRY_MAKER);
-        return REGISTRY;
+//        DeferredRegister<T> REGISTRY_MAKER = DeferredRegister.create(registryId, registryId.getNamespace());
+//        Supplier<IForgeRegistry<T>> REGISTRY = REGISTRY_MAKER.makeRegistry(RegistryBuilder::new);
+//        deferredRegisters.add(REGISTRY_MAKER);
+//        return REGISTRY;
+        registryBuilders.add(RegistryBuilder.of(registryId));
+        
+        return () -> RegistryManager.ACTIVE.getRegistry(registryId);
     }
 
     /**
@@ -52,9 +57,10 @@ public class RegistryHelper extends ErrorLibHelper {
         return registry.getValues().stream().toList();
     }
 
-    public void register(IEventBus eventBus) {
-        for (DeferredRegister<?> register : deferredRegisters) {
-            register.register(eventBus);
+    @EventHandler
+    public void register(NewRegisterEvent event) {
+        for (RegistryBuilder builder : registryBuilders) {
+            event.create(builder);
         }
     }
 }
