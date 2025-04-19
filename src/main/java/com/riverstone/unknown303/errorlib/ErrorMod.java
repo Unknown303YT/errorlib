@@ -1,6 +1,8 @@
 package com.riverstone.unknown303.errorlib;
 
 import com.mojang.logging.LogUtils;
+import com.riverstone.unknown303.errorlib.abilities.ErrorAbilities;
+import com.riverstone.unknown303.errorlib.api.ErrorAPI;
 import com.riverstone.unknown303.errorlib.api.misc.ErrorRegistries;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -25,8 +27,9 @@ public class ErrorMod {
     public ErrorMod(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
 
-        // Load static loadables
-        ErrorRegistries.load();
+        ErrorAPI.init(modEventBus);
+
+        ErrorAbilities.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);

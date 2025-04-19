@@ -23,7 +23,7 @@ public class RegistryMaker<T> {
         eventBus.addListener(this::createRegistry);
     }
 
-    void createRegistry(NewRegistryEvent event) {
+    private void createRegistry(NewRegistryEvent event) {
         RegistryBuilder<T> builder = new RegistryBuilder<T>()
                 .setName(registryKey.location()).setDefaultKey(registryKey.location());
         this.registry.createRegistry(event, builder);

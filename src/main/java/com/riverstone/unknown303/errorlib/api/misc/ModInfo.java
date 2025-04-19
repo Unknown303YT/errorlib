@@ -1,5 +1,6 @@
-package com.riverstone.unknown303.errorlib.api;
+package com.riverstone.unknown303.errorlib.api.misc;
 
+import com.riverstone.unknown303.errorlib.api.helpers.ErrorLibHelper;
 import net.minecraftforge.eventbus.api.IEventBus;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class ModInfo {
         return this;
     }
 
-    <T extends ErrorLibHelper.Registrable> void registrableHelper(T helper) {
+    public <T extends ErrorLibHelper.Registrable> void registrableHelper(T helper) {
         registrableHelpers.add(helper);
     }
 

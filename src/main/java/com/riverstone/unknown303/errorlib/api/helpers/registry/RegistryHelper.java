@@ -1,7 +1,7 @@
 package com.riverstone.unknown303.errorlib.api.helpers.registry;
 
-import com.riverstone.unknown303.errorlib.api.ErrorLibHelper;
-import com.riverstone.unknown303.errorlib.api.ModInfo;
+import com.riverstone.unknown303.errorlib.api.helpers.ErrorLibHelper;
+import com.riverstone.unknown303.errorlib.api.misc.ModInfo;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -19,9 +19,8 @@ public class RegistryHelper extends ErrorLibHelper.Registrable {
 
     public <T> ErrorLibRegistry<T> createRegistry(ResourceKey<Registry<T>> registryKey) {
         RegistryMaker<T> registryMaker = new RegistryMaker<>(registryKey);
-        ErrorLibRegistry<T> registry = registryMaker.getRegistry();
         registryMakers.add(registryMaker);
-        return registry;
+        return registryMaker.getRegistry();
     }
 
     public <T> ErrorLibRegistry<T> createRegistry(ResourceLocation registryId) {

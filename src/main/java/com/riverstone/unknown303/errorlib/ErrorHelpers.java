@@ -1,6 +1,6 @@
 package com.riverstone.unknown303.errorlib;
 
-import com.riverstone.unknown303.errorlib.api.ModInfo;
+import com.riverstone.unknown303.errorlib.api.misc.ModInfo;
 import com.riverstone.unknown303.errorlib.api.helpers.registry.RegistryHelper;
 
 public class ErrorHelpers {

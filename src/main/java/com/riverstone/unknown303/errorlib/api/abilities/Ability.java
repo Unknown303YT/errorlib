@@ -1,6 +1,8 @@
-package com.riverstone.unknown303.errorlib.api.abilties;
+package com.riverstone.unknown303.errorlib.api.abilities;
 
-import com.riverstone.unknown303.errorlib.api.abilties.origin.AbilityOrigin;
+import com.riverstone.unknown303.errorlib.api.abilities.misc.AbilityColor;
+import com.riverstone.unknown303.errorlib.api.abilities.misc.AbilityContext;
+import com.riverstone.unknown303.errorlib.api.abilities.origin.AbilityOrigin;
 import com.riverstone.unknown303.errorlib.api.misc.ErrorRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -41,5 +43,13 @@ public abstract class Ability {
 
     public boolean isAvailable(Player player) {
         return origin.isAvailable(player, player.level());
+    }
+
+    public AbilityColor getColor() {
+        return origin.getColor();
+    }
+
+    public AbilityContext getContext() {
+        return origin.getContext();
     }
 }

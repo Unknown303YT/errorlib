@@ -1,4 +1,4 @@
-package com.riverstone.unknown303.errorlib.api.abilties;
+package com.riverstone.unknown303.errorlib.api.abilities;
 
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
