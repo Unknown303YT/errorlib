@@ -1,9 +1,10 @@
 package com.riverstone.unknown303.errorlib.api.helpers;
 
+import com.riverstone.unknown303.errorlib.api.misc.Debuggable;
 import com.riverstone.unknown303.errorlib.api.misc.ModInfo;
 import net.minecraftforge.eventbus.api.IEventBus;
 
-public abstract class ErrorLibHelper {
+public class ErrorLibHelper extends Debuggable {
     private final ModInfo modInfo;
 
     public ErrorLibHelper(ModInfo modInfo) {

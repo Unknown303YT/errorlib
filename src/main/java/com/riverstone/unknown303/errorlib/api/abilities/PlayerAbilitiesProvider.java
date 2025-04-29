@@ -15,9 +15,9 @@ public class PlayerAbilitiesProvider implements ICapabilityProvider, INBTSeriali
     public static Capability<Abilities> PLAYER_ABILITIES = CapabilityManager.get(new CapabilityToken<>(){});
 
     private Abilities abilities = null;
-    private final LazyOptional<Abilities> optional = LazyOptional.of(this::getPlayerAbilities);
+    private final LazyOptional<Abilities> HOLDER = LazyOptional.of(this::getOrCreateAbilities);
 
-    private Abilities getPlayerAbilities() {
+    private Abilities getOrCreateAbilities() {
         if (this.abilities == null)
             this.abilities = new Abilities();
         return this.abilities;
@@ -25,19 +25,16 @@ public class PlayerAbilitiesProvider implements ICapabilityProvider, INBTSeriali
 
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-        if (cap == PLAYER_ABILITIES)
-            return optional.cast();
-        return LazyOptional.empty();
+        return PLAYER_ABILITIES.orEmpty(cap, HOLDER);
     }
 
     @Override
     public CompoundTag serializeNBT() {
-        CompoundTag tag = new CompoundTag();
-        return tag;
+        return getOrCreateAbilities().saveData();
     }
 
     @Override
-    public void deserializeNBT(CompoundTag tag) {
-
+    public void deserializeNBT(CompoundTag data) {
+        abilities = getOrCreateAbilities().loadData(data);
     }
 }

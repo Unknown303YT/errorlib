@@ -27,6 +27,8 @@ public class ErrorMod {
     public ErrorMod(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
 
+        ErrorAPI.enableDebugging();
+
         ErrorAPI.init(modEventBus);
 
         ErrorAbilities.register(modEventBus);

@@ -1,6 +1,6 @@
 package com.riverstone.unknown303.errorlib.api.helpers.registry;
 
-import com.mojang.logging.LogUtils;
+import com.riverstone.unknown303.errorlib.api.misc.Debuggable;
 import net.minecraft.CrashReport;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.Registry;
@@ -11,11 +11,10 @@ import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.NewRegistryEvent;
 import net.minecraftforge.registries.RegistryBuilder;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.function.Supplier;
 
-public class ErrorLibRegistry<T> {
+public class ErrorLibRegistry<T> extends Debuggable {
     private final ResourceKey<Registry<T>> registryKey;
 
     private Supplier<IForgeRegistry<T>> registry = () -> null;
@@ -26,18 +25,22 @@ public class ErrorLibRegistry<T> {
 
     void createRegistry(NewRegistryEvent event, RegistryBuilder<T> builder) {
         registry = event.create(builder, this::onFill);
+        debug(logger -> logger.debug("NewRegistryEvent called."));
     }
 
     private void onFill(IForgeRegistry<T> registry) {
         if (registryKey.equals(registry.getRegistryKey())) {
             this.registry = () -> registry;
+            debug(logger -> logger.debug("Registry {} filled.", registryKey.location()));
         } else {
-            String error = "Was provided filled IForgeRegistry that didn't match ErrorLibRegistry. Provided IForgeRegistry ID: "
-                    + registry.getRegistryKey().registry() + " ErrorLibRegistryID: " + registryKey.registry();
-            IllegalStateException exception = new IllegalStateException(error);
-            LogUtils.getLogger().error(LogUtils.FATAL_MARKER, error, exception);
-            Minecraft.crash(CrashReport.forThrowable(exception, error));
-            throw exception;
+            debug(logger -> {
+                String baseDescription = "Provided Registry's ResourceKey doesn't match correct ResourceKey!";
+                String extraDescription = "Provided Registry's ID: %s. Correct Registry ID: %s".formatted(registry.getRegistryName(), registryKey.location());
+                IllegalArgumentException exception = new IllegalArgumentException("%s %s".formatted(baseDescription, extraDescription));
+                logger.error(baseDescription, exception);
+                Minecraft.crash(CrashReport.forThrowable(exception, "%s %s".formatted(baseDescription, extraDescription)));
+                throw exception;
+            });
         }
     }
 

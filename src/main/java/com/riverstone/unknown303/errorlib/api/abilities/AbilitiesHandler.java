@@ -1,6 +1,8 @@
 package com.riverstone.unknown303.errorlib.api.abilities;
 
 import com.riverstone.unknown303.errorlib.api.abilities.misc.AbilityContext;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.world.entity.player.Player;
 
 import java.util.ArrayList;
@@ -60,6 +62,48 @@ public class AbilitiesHandler {
                 availableAbilities = newAvailableAbilities;
             }
         }
+    }
+
+    // SAVING
+
+    public CompoundTag getConstantAbilitiesNBT() {
+        CompoundTag nbt = new CompoundTag();
+
+        for (int i = 0; i < constantAbilities.size(); i++)
+            nbt.putString("ability" + i, constantAbilities.get(i).toString());
+
+        return nbt;
+    }
+
+    public CompoundTag getEnabledAbilitiesNBT() {
+        CompoundTag nbt = new CompoundTag();
+
+        int count = Math.min(enabledAbilities.size(), 5);
+        nbt.putInt("count", count);
+        for (int i = 0; i < count; i++)
+            nbt.putString("ability" + i, enabledAbilities.get(i).toString());
+
+        return nbt;
+    }
+
+    public CompoundTag getAvailableAbilitiesNBT() {
+        CompoundTag nbt = new CompoundTag();
+
+        int count = Math.min(enabledAbilities.size(), 5);
+        nbt.putInt("count", count);
+        for (int i = 0; i < count; i++)
+            nbt.putString("ability" + i, availableAbilities.get(i).toString());
+
+        return nbt;
+    }
+
+    public CompoundTag getUnlockedAbilitiesNBT() {
+        CompoundTag nbt = new CompoundTag();
+
+        for (int i = 0; i < unlockedAbilities.size(); i++)
+            nbt.putString("ability" + i, unlockedAbilities.get(i).toString());
+
+        return nbt;
     }
 
     public enum ScrollDirection {
