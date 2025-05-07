@@ -26,7 +26,7 @@ public class RegistryHelper extends ErrorLibHelper.Registrable {
      * @param <T> The type of {@linkplain IForgeRegistry} we are making.
      * @return A {@linkplain DelegatedRegistry} that handles the {@linkplain IForgeRegistry}
      */
-    public <T> IForgeRegistry<T> createRegistry(ResourceKey<Registry<T>> registryKey) {
+    public <T> DelegatedRegistry<T> createRegistry(ResourceKey<Registry<T>> registryKey) {
         DeferredRegister<T> deferredRegister = DeferredRegister.create(registryKey, this.getModId());
         Supplier<IForgeRegistry<T>> reg =
                 deferredRegister.makeRegistry(RegistryBuilder::new);
@@ -34,7 +34,7 @@ public class RegistryHelper extends ErrorLibHelper.Registrable {
         return new DelegatedRegistry<>(registryKey, reg);
     }
 
-    public <T> ErrorLibRegistry<T> createRegistry(ResourceLocation registryId) {
+    public <T> DelegatedRegistry<T> createRegistry(ResourceLocation registryId) {
         return createRegistry(createRegistryKey(registryId));
     }
 
