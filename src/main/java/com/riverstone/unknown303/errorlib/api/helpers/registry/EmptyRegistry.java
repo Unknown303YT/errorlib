@@ -167,6 +167,6 @@ public class EmptyRegistry<T> implements IForgeRegistry<T> {
 
     @Override
     public @NotNull Iterator<T> iterator() {
-        return null;
+        return VALUES.values().iterator();
     }
 }
