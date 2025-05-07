@@ -1,9 +1,28 @@
 package com.riverstone.unknown303.errorlib.api.abilities;
 
+import com.riverstone.unknown303.errorlib.api.abilities.misc.AbilityContext;
+import com.riverstone.unknown303.errorlib.api.helpers.keybind.Keybind;
+import com.riverstone.unknown303.errorlib.misc.ErrorKeybinds;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.entity.player.Player;
+import org.jetbrains.annotations.ApiStatus;
 
 public class Abilities {
     private final AbilitiesHandler handler = new AbilitiesHandler();
+
+    public void unlockAbility(Ability ability, Player player) {
+        if (ability.getContext() == AbilityContext.CONSTANT) {
+            handler.unlockConstant(ability);
+            ability.enable(player, player.level());
+            return;
+        }
+        handler.unlockAbility(ability);
+    }
+
+    @ApiStatus.Internal
+    public void pressAbilityKeybind(Keybind keybind) {
+        int slot = ErrorKeybinds.getAbilitySlot(keybind);
+    }
 
     public CompoundTag saveData() {
         CompoundTag data = new CompoundTag();
@@ -15,9 +34,8 @@ public class Abilities {
     }
 
     public Abilities loadData(CompoundTag data) {
-        Abilities nbt = fromNBT(data);
-        copyFrom(nbt);
-        return this;
+        Abilities fromNBT = fromNBT(data);
+        return copyFrom(fromNBT);
     }
 
     public static Abilities fromNBT(CompoundTag data) {

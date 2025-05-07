@@ -3,7 +3,7 @@ package com.riverstone.unknown303.errorlib.api.misc;
 import com.riverstone.unknown303.errorlib.ErrorHelpers;
 import com.riverstone.unknown303.errorlib.ErrorMod;
 import com.riverstone.unknown303.errorlib.api.abilities.Ability;
-import com.riverstone.unknown303.errorlib.api.helpers.registry.ErrorLibRegistry;
+import com.riverstone.unknown303.errorlib.api.helpers.registry.DelegatedRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;

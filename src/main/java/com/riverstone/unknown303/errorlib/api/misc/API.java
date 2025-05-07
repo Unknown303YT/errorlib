@@ -8,6 +8,7 @@ public class API {
 
     /**
      * OVERRIDE THIS:
+     * @param modEventBus The mod api's {@linkplain IEventBus}.
      */
-    public static void init(IEventBus eventBus) {}
+    public static void init(IEventBus modEventBus) {}
 }

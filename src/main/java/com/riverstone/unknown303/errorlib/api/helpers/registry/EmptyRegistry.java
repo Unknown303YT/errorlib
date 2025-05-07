@@ -107,7 +107,7 @@ public class EmptyRegistry<T> implements IForgeRegistry<T> {
 
     @Override
     public @NotNull Codec<T> getCodec() {
-        return ResourceKey;
+        return null;
     }
 
     @Override

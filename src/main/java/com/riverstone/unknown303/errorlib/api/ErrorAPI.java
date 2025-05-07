@@ -18,15 +18,17 @@ public class ErrorAPI extends API {
         return shouldDebug;
     }
 
-    public static void init(IEventBus eventBus) {
+    public static void init(IEventBus modEventBus) {
+        ErrorHelpers.ERRORLIB_INFO.modEventBus(modEventBus);
+
         ErrorRegistries.load();
 
-        eventBus.register(ModEvents.Common.class);
-        eventBus.register(ModEvents.Client.class);
+        modEventBus.register(ModEvents.Common.class);
+        modEventBus.register(ModEvents.Client.class);
 
         FORGE_EVENT_BUS.register(ForgeEvents.Common.class);
         FORGE_EVENT_BUS.register(ForgeEvents.Client.class);
 
-        ErrorHelpers.REGISTRY_HELPER.register(eventBus);
+        ErrorHelpers.ERRORLIB_INFO.register();
     }
 }

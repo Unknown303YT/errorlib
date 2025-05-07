@@ -1,8 +1,6 @@
 package com.riverstone.unknown303.errorlib.api.abilities;
 
-import com.riverstone.unknown303.errorlib.api.abilities.misc.AbilityContext;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.Tag;
 import net.minecraft.world.entity.player.Player;
 
 import java.util.ArrayList;
@@ -15,21 +13,18 @@ public class AbilitiesHandler {
     private List<Ability> availableAbilities = new ArrayList<>();
     private List<Ability> enabledAbilities = new ArrayList<>();
 
-    public void unlockAbility(Ability ability, Player player) {
-        if (!contains(ability))
-            forceUnlockAbility(ability, player);
+    public void unlockConstant(Ability ability) {
+        constantAbilities.add(ability);
     }
 
-    public void forceUnlockAbility(Ability ability, Player player) {
-        switch (ability.getContext()) {
-            case TOGGLE -> {
-                if (useAvailable()) availableAbilities.add(ability);
-                else unlockedAbilities.add(ability);
-                ability.enable(player, player.level());
-            } case CONSTANT -> {
+    public void unlockAbility(Ability ability) {
+        if (!contains(ability))
+            forceUnlockAbility(ability);
+    }
 
-            }
-        }
+    public void forceUnlockAbility(Ability ability) {
+        if (useAvailable()) availableAbilities.add(ability);
+        else unlockedAbilities.add(ability);
     }
 
     private boolean useAvailable() {
@@ -62,6 +57,7 @@ public class AbilitiesHandler {
                 availableAbilities = newAvailableAbilities;
             }
         }
+        enabledAbilities.removeIf(ability -> !availableAbilities.contains(ability));
     }
 
     // SAVING
@@ -69,8 +65,19 @@ public class AbilitiesHandler {
     public CompoundTag getConstantAbilitiesNBT() {
         CompoundTag nbt = new CompoundTag();
 
+        nbt.putInt("count", constantAbilities.size());
         for (int i = 0; i < constantAbilities.size(); i++)
             nbt.putString("ability" + i, constantAbilities.get(i).toString());
+
+        return nbt;
+    }
+
+    public CompoundTag getUnlockedAbilitiesNBT() {
+        CompoundTag nbt = new CompoundTag();
+
+        nbt.putInt("count", unlockedAbilities.size());
+        for (int i = 0; i < unlockedAbilities.size(); i++)
+            nbt.putString("ability" + i, unlockedAbilities.get(i).toString());
 
         return nbt;
     }
@@ -97,14 +104,54 @@ public class AbilitiesHandler {
         return nbt;
     }
 
-    public CompoundTag getUnlockedAbilitiesNBT() {
-        CompoundTag nbt = new CompoundTag();
+    // LOADING
 
-        for (int i = 0; i < unlockedAbilities.size(); i++)
-            nbt.putString("ability" + i, unlockedAbilities.get(i).toString());
-
-        return nbt;
+    public void loadConstantAbilitiesNBT(CompoundTag nbt) {
+        for (int i = 0; i < nbt.getInt("count"); i++) {
+            addOrSet(constantAbilities, i, Ability.fromID(
+                    nbt.getString("ability" + i)));
+        }
     }
+
+    public void loadUnlockedAbilitiesNBT(CompoundTag nbt) {
+        for (int i = 0; i < nbt.getInt("count"); i++) {
+            addOrSet(unlockedAbilities, i, Ability.fromID(
+                    nbt.getString("ability" + i)));
+        }
+    }
+
+    public void loadEnabledAbilitiesNBT(CompoundTag nbt) {
+        for (int i = 0; i < nbt.getInt("count"); i++) {
+            addOrSet(enabledAbilities, i, Ability.fromID(
+                    nbt.getString("ability" + i)));
+        }
+    }
+
+    public void loadAvailableAbilitiesNBT(CompoundTag nbt) {
+        for (int i = 0; i < nbt.getInt("count"); i++) {
+            addOrSet(availableAbilities, i, Ability.fromID(
+                    nbt.getString("ability" + i)));
+        }
+    }
+
+    public void loadAbilities(AbilitiesHandler old) {
+        constantAbilities = old.constantAbilities;
+        unlockedAbilities = old.unlockedAbilities;
+        availableAbilities = old.availableAbilities;
+        enabledAbilities = old.enabledAbilities;
+
+        loadConstantAbilitiesNBT(old.getConstantAbilitiesNBT());
+        loadUnlockedAbilitiesNBT(old.getUnlockedAbilitiesNBT());
+        loadAvailableAbilitiesNBT(old.getAvailableAbilitiesNBT());
+        loadEnabledAbilitiesNBT(old.getEnabledAbilitiesNBT());
+    }
+
+    private <T> void addOrSet(List<T> addTo, int index, T value) {
+        if (index >= addTo.size() || addTo.get(index) != null) addTo.add(index, value);
+        else addTo.set(index, value);
+    }
+
+
 
     public enum ScrollDirection {
         UP,

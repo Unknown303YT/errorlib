@@ -215,7 +215,3 @@ tasks.register('sourcesJar', Jar) {
 artifacts {
     archives sourcesJar
 }
-
-javadoc {
-    destinationDir = file("$buildDir/docs/javadoc")
-}

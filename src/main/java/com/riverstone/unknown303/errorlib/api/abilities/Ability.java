@@ -52,4 +52,12 @@ public abstract class Ability {
     public AbilityContext getContext() {
         return origin.getContext();
     }
+
+    public static Ability fromID(String id) {
+        return fromID(ResourceLocation.parse(id));
+    }
+
+    public static Ability fromID(ResourceLocation id) {
+        return ErrorRegistries.ABILITIES.getValue(id);
+    }
 }

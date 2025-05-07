@@ -7,7 +7,7 @@ import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class ForgeEvents {
-    public class Client {
+    public static class Client {
 
     }
 

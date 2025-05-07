@@ -3,7 +3,10 @@ package com.riverstone.unknown303.errorlib;
 import com.mojang.logging.LogUtils;
 import com.riverstone.unknown303.errorlib.abilities.ErrorAbilities;
 import com.riverstone.unknown303.errorlib.api.ErrorAPI;
+import com.riverstone.unknown303.errorlib.api.misc.API;
 import com.riverstone.unknown303.errorlib.api.misc.ErrorRegistries;
+import com.riverstone.unknown303.errorlib.events.ForgeEvents;
+import com.riverstone.unknown303.errorlib.events.ModEvents;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -18,7 +21,7 @@ import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(ErrorMod.MOD_ID)
-public class ErrorMod {
+public class ErrorMod extends API {
     // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "errorlib";
     // Directly reference a slf4j logger
@@ -26,15 +29,20 @@ public class ErrorMod {
 
     public ErrorMod(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
-
         ErrorAPI.enableDebugging();
 
         ErrorAPI.init(modEventBus);
 
+        modEventBus.register(ModEvents.Client.class);
+        modEventBus.register(ModEvents.Common.class);
+
+        FORGE_EVENT_BUS.register(ForgeEvents.Client.class);
+        FORGE_EVENT_BUS.register(ForgeEvents.Common.class);
+
         ErrorAbilities.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
-        MinecraftForge.EVENT_BUS.register(this);
+        FORGE_EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
     }
 
