@@ -12,24 +12,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RegistryHelper extends ErrorLibHelper.Registrable {
-    private final List<RegistryMaker<?>> registryMakers = new ArrayList<>();
+    private final List<DeferredRegister<?>> registers = new ArrayList<>();
 
     public RegistryHelper(ModInfo modInfo) {
         super(modInfo);
     }
 
     /**
-     * Used to create a custom {@linkplain IForgeRegistry} in the form of a {@linkplain ErrorLibRegistry}.<br>
-     * We use the {@linkplain ErrorLibRegistry} in case the {@linkplain IForgeRegistry} is never filled.
+     * Used to create a custom {@linkplain IForgeRegistry} in the form of a {@linkplain DelegatedRegistry}.<br>
+     * We use the {@linkplain DelegatedRegistry} to delegate all methods in case the proper {@linkplain IForgeRegistry} is never filled.<br>
+     * It also is helpful for delaying errors until the proper {@linkplain IForgeRegistry} is filled.
      * @param registryKey The {@linkplain ResourceKey<Registry>} that contains our registry's {@link ResourceLocation ResourceLocation id}.
      * @param <T> The type of {@linkplain IForgeRegistry} we are making.
-     * @return An {@linkplain ErrorLibRegistry} that handles the {@linkplain IForgeRegistry}
+     * @return A {@linkplain DelegatedRegistry} that handles the {@linkplain IForgeRegistry}
      */
-    public <T> ErrorLibRegistry<T> createRegistry(ResourceKey<Registry<T>> registryKey) {
-        RegistryMaker<T> registryMaker = new RegistryMaker<>(registryKey);
-        registryMakers.add(registryMaker);
-        debug((logger -> logger.debug("Added RegistryMaker {}.", registryMaker.getRegistryId().toString())));
-        return registryMaker.getRegistry();
+    public <T> IForgeRegistry<T> createRegistry(ResourceKey<Registry<T>> registryKey) {
+        DeferredRegister<T> deferredRegister = DeferredRegister.create(registryKey, this.getModId());
+        Supplier<IForgeRegistry<T>> reg =
+                deferredRegister.makeRegistry(RegistryBuilder::new);
+        registers.add(deferredRegister);
+        return new DelegatedRegistry<>(registryKey, reg);
     }
 
     public <T> ErrorLibRegistry<T> createRegistry(ResourceLocation registryId) {
@@ -42,11 +44,11 @@ public class RegistryHelper extends ErrorLibHelper.Registrable {
 
     @Override
     public void register(IEventBus eventBus) {
-        log(logger -> logger.info("Registering RegistryMakers..."));
+        log(logger -> logger.info("Registering DeferredRegisters..."));
         debug(logger -> {
-            if (registryMakers.isEmpty())
-                logger.warn("RegistryHelper Empty! Variables may not be loaded yet.");
+            if (registers.isEmpty())
+                logger.warn("DeferredRegisters Empty! Variables may not be loaded yet.");
         });
-        registryMakers.forEach(registryMaker -> registryMaker.register(eventBus));
+        registers.forEach(register -> register.register(eventBus));
     }
 }
