@@ -13,7 +13,7 @@ public class ErrorRegistries extends StaticLoadable {
         init();
     }
     
-    public static final IForgeRegistry<Ability> ABILITIES = ErrorHelpers.REGISTRY_HELPER.createRegistry(Keys.ABILITIES);
+    public static final DelegatedRegistry<Ability> ABILITIES = ErrorHelpers.REGISTRY_HELPER.createRegistry(Keys.ABILITIES);
 
     public static class Keys {
         public static final ResourceKey<Registry<Ability>> ABILITIES = ErrorHelpers.REGISTRY_HELPER.createRegistryKey(
