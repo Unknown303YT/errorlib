@@ -2,6 +2,7 @@ package com.riverstone.unknown303.errorlib.api.abilities;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
+import org.jetbrains.annotations.ApiStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,15 +14,18 @@ public class AbilitiesHandler {
     private List<Ability> availableAbilities = new ArrayList<>();
     private List<Ability> enabledAbilities = new ArrayList<>();
 
+    @ApiStatus.Internal
     public void unlockConstant(Ability ability) {
         constantAbilities.add(ability);
     }
 
+    @ApiStatus.Internal
     public void unlockAbility(Ability ability) {
         if (!contains(ability))
             forceUnlockAbility(ability);
     }
 
+    @ApiStatus.Internal
     public void forceUnlockAbility(Ability ability) {
         if (useAvailable()) availableAbilities.add(ability);
         else unlockedAbilities.add(ability);

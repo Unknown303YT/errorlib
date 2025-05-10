@@ -20,7 +20,7 @@ public class Abilities {
     }
 
     @ApiStatus.Internal
-    public void pressAbilityKeybind(Keybind keybind) {
+    public void pressAbilityKeybind(Keybind keybind, Player player) {
         int slot = ErrorKeybinds.getAbilitySlot(keybind);
     }
 

@@ -37,10 +37,24 @@ public class RegistryHelper extends ErrorLibHelper.Registrable {
         return new DelegatedRegistry<>(registryKey, reg);
     }
 
+    /**
+     * Used to create a custom {@linkplain IForgeRegistry} in the form of a {@linkplain DelegatedRegistry}.<br>
+     * We use the {@linkplain DelegatedRegistry} to delegate all methods in case the proper {@linkplain IForgeRegistry} is never filled.<br>
+     * It also is helpful for delaying errors until the proper {@linkplain IForgeRegistry} is filled.
+     * @param registryId The {@linkplain ResourceLocation} that we will turn into a {@linkplain ResourceKey<Registry>}.
+     * @param <T> The type of variable the {@linkplain IForgeRegistry} handles.
+     * @return A {@linkplain DelegatedRegistry} that handles the {@linkplain IForgeRegistry}.
+     */
     public <T> DelegatedRegistry<T> createRegistry(ResourceLocation registryId) {
         return createRegistry(createRegistryKey(registryId));
     }
 
+    /**
+     * @param registryKey The {@linkplain ResourceLocation} that we will turn into a {@linkplain ResourceKey<Registry>}.
+     * @param <T> The type of variable used by the {@linkplain Registry} or {@linkplain IForgeRegistry}.
+     * @return A {@linkplain ResourceKey<Registry>} that can be used when creating a custom {@linkplain IForgeRegistry}.
+
+     */
     public <T> ResourceKey<Registry<T>> createRegistryKey(ResourceLocation registryKey) {
         return ResourceKey.createRegistryKey(registryKey);
     }
