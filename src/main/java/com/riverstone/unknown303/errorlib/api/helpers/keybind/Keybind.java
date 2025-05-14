@@ -2,6 +2,7 @@ package com.riverstone.unknown303.errorlib.api.helpers.keybind;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.KeyMapping;
+import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
@@ -20,6 +21,8 @@ public class Keybind {
 
     private final ResourceLocation name;
     private final KeyMapping keyMapping;
+
+    private EventDispatcher eventDispatcher = null;
 
     private BiConsumer<InputEvent, Keybind> onInput;
     private BiConsumer<InputEvent, KeyMapping> onClick =
@@ -72,17 +75,15 @@ public class Keybind {
         this.onRegister = onRegister;
     }
 
-    public void register(IEventBus eventBus) {
-        eventBus.addListener(this::onRegisterMappings);
-        MinecraftForge.EVENT_BUS.addListener(this::onInput);
+    public ResourceLocation getName() {
+        return this.name;
     }
 
-    private void onRegisterMappings(RegisterKeyMappingsEvent event) {
-        event.register(this.keyMapping);
-        if (this.onRegister != null)
-            this.onRegister.accept(event, this.keyMapping);
+    public KeyMapping getKeyMapping() {
+        return this.keyMapping;
     }
 
+    @SubscribeEvent
     private void onInput(InputEvent event) {
         if (this.onInput != null)
             this.onInput.accept(event, this);
@@ -96,11 +97,24 @@ public class Keybind {
         }
     }
 
-    public ResourceLocation getName() {
-        return this.name;
+    public EventDispatcher getEventDispatcher() {
+        if (eventDispatcher == null)
+            eventDispatcher = new EventDispatcher(this);
+        return eventDispatcher;
     }
 
-    public KeyMapping getKeyMapping() {
-        return this.keyMapping;
+    public static class EventDispatcher {
+        private final Keybind keybind;
+
+        private EventDispatcher(Keybind keybind) {
+            this.keybind = keybind;
+        }
+
+        @SubscribeEvent
+        private void onRegisterMappings(RegisterKeyMappingsEvent event) {
+            event.register(keybind.keyMapping);
+            if (keybind.onRegister != null)
+                keybind.onRegister.accept(event, keybind.keyMapping);
+        }
     }
 }

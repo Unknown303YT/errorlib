@@ -6,6 +6,7 @@ import net.minecraft.client.KeyMapping;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 
 import java.util.ArrayList;
@@ -41,6 +42,7 @@ public class KeybindHelper extends ErrorLibHelper.Registrable {
 
     @Override
     public void register(IEventBus eventBus) {
-        keybinds.forEach(keybind -> keybind.register(eventBus));
+        keybinds.forEach(eventBus::register);
+        keybinds.forEach(keybind -> eventBus.register(keybind.getEventDispatcher()));
     }
 }

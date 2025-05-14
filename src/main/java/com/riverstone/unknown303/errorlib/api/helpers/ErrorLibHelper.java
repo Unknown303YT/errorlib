@@ -3,6 +3,7 @@ package com.riverstone.unknown303.errorlib.api.helpers;
 import com.riverstone.unknown303.errorlib.api.misc.Debuggable;
 import com.riverstone.unknown303.errorlib.api.misc.ModInfo;
 import net.minecraftforge.eventbus.api.IEventBus;
+import org.jetbrains.annotations.ApiStatus;
 
 public class ErrorLibHelper extends Debuggable {
     private final ModInfo modInfo;
@@ -21,6 +22,7 @@ public class ErrorLibHelper extends Debuggable {
             modInfo.registrableHelper(this);
         }
 
+        @ApiStatus.Internal
         public abstract void register(IEventBus eventBus);
     }
 }

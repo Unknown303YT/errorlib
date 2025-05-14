@@ -1,10 +1,10 @@
 package com.riverstone.unknown303.errorlib.api.abilities;
 
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.entity.player.Player;
 import org.jetbrains.annotations.ApiStatus;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class AbilitiesHandler {
@@ -39,6 +39,22 @@ public class AbilitiesHandler {
         return constantAbilities.contains(ability) ||
                 availableAbilities.contains(ability) ||
                 unlockedAbilities.contains(ability);
+    }
+
+    public List<Ability> getConstantAbilities() {
+        return constantAbilities;
+    }
+
+    public List<Ability> getUnlockedAbilities() {
+        return unlockedAbilities;
+    }
+
+    public List<Ability> getAvailableAbilities() {
+        return availableAbilities;
+    }
+
+    public List<Ability> getEnabledAbilities() {
+        return enabledAbilities;
     }
 
     public void scroll(ScrollDirection direction) {
@@ -112,28 +128,28 @@ public class AbilitiesHandler {
 
     public void loadConstantAbilitiesNBT(CompoundTag nbt) {
         for (int i = 0; i < nbt.getInt("count"); i++) {
-            addOrSet(constantAbilities, i, Ability.fromID(
+            constantAbilities.add(i, Ability.fromID(
                     nbt.getString("ability" + i)));
         }
     }
 
     public void loadUnlockedAbilitiesNBT(CompoundTag nbt) {
         for (int i = 0; i < nbt.getInt("count"); i++) {
-            addOrSet(unlockedAbilities, i, Ability.fromID(
+            unlockedAbilities.add(i, Ability.fromID(
                     nbt.getString("ability" + i)));
         }
     }
 
     public void loadEnabledAbilitiesNBT(CompoundTag nbt) {
         for (int i = 0; i < nbt.getInt("count"); i++) {
-            addOrSet(enabledAbilities, i, Ability.fromID(
+            enabledAbilities.add(i, Ability.fromID(
                     nbt.getString("ability" + i)));
         }
     }
 
     public void loadAvailableAbilitiesNBT(CompoundTag nbt) {
         for (int i = 0; i < nbt.getInt("count"); i++) {
-            addOrSet(availableAbilities, i, Ability.fromID(
+            availableAbilities.add(i, Ability.fromID(
                     nbt.getString("ability" + i)));
         }
     }
@@ -149,13 +165,6 @@ public class AbilitiesHandler {
         loadAvailableAbilitiesNBT(old.getAvailableAbilitiesNBT());
         loadEnabledAbilitiesNBT(old.getEnabledAbilitiesNBT());
     }
-
-    private <T> void addOrSet(List<T> addTo, int index, T value) {
-        if (index >= addTo.size() || addTo.get(index) != null) addTo.add(index, value);
-        else addTo.set(index, value);
-    }
-
-
 
     public enum ScrollDirection {
         UP,

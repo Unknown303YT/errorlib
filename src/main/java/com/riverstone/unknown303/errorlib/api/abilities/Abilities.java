@@ -3,6 +3,7 @@ package com.riverstone.unknown303.errorlib.api.abilities;
 import com.riverstone.unknown303.errorlib.api.abilities.misc.AbilityContext;
 import com.riverstone.unknown303.errorlib.api.helpers.keybind.Keybind;
 import com.riverstone.unknown303.errorlib.misc.ErrorKeybinds;
+import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
 import org.jetbrains.annotations.ApiStatus;
@@ -22,6 +23,13 @@ public class Abilities {
     @ApiStatus.Internal
     public void pressAbilityKeybind(Keybind keybind, Player player) {
         int slot = ErrorKeybinds.getAbilitySlot(keybind);
+        enable(handler.getAvailableAbilities().get(slot), Minecraft.getInstance().player);
+    }
+
+    public void enable(Ability ability, Player player) {
+        handler.getEnabledAbilities().add(handler.getAvailableAbilities().indexOf(ability),
+                ability);
+        ability.enable(player, player.level());
     }
 
     public CompoundTag saveData() {
