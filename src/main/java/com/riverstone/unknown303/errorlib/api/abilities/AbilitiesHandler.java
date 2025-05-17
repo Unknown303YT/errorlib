@@ -1,6 +1,10 @@
 package com.riverstone.unknown303.errorlib.api.abilities;
 
+import com.riverstone.unknown303.errorlib.api.event.AbilityEvent;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.Event;
 import org.jetbrains.annotations.ApiStatus;
 
 import java.util.ArrayList;
@@ -14,21 +18,39 @@ public class AbilitiesHandler {
     private List<Ability> availableAbilities = new ArrayList<>();
     private List<Ability> enabledAbilities = new ArrayList<>();
 
+    private boolean contains = false;
+
     @ApiStatus.Internal
-    public void unlockConstant(Ability ability) {
-        constantAbilities.add(ability);
+    public void unlockConstant(Ability ability, Player player, Abilities abilities, AbilityEvent.AbilityUnlockedEvent abilityUnlockedEvent) {
+        if (abilityUnlockedEvent.getResult() == Event.Result.ALLOW ||
+                (abilityUnlockedEvent.getResult() == Event.Result.DEFAULT && !contains(ability))) constantAbilities.add(ability);
     }
 
     @ApiStatus.Internal
-    public void unlockAbility(Ability ability) {
-        if (!contains(ability))
-            forceUnlockAbility(ability);
+    public void unlockAbility(Ability ability, Player player, Abilities abilities, AbilityEvent.AbilityUnlockedEvent abilityUnlockedEvent) {
+        if (!contains(ability)) forceUnlockAbility(ability);
     }
 
     @ApiStatus.Internal
     public void forceUnlockAbility(Ability ability) {
         if (useAvailable()) availableAbilities.add(ability);
         else unlockedAbilities.add(ability);
+    }
+
+    @ApiStatus.Internal
+    public void lockConstant(Ability ability) {
+        if (contains(ability)) constantAbilities.remove(ability);
+    }
+
+    @ApiStatus.Internal
+    public void lockAbility(Ability ability) {
+        if (contains(ability)) forceLockAbility(ability);
+    }
+
+    @ApiStatus.Internal
+    public void forceLockAbility(Ability ability) {
+        availableAbilities.remove(ability);
+        unlockedAbilities.remove(ability);
     }
 
     private boolean useAvailable() {
@@ -41,21 +63,70 @@ public class AbilitiesHandler {
                 unlockedAbilities.contains(ability);
     }
 
+    public boolean contains(Class<? extends Ability> abilityClass) {
+        contains = false;
+        constantAbilities.forEach(ability -> {
+            if (ability.getClass() == abilityClass)
+                contains = true;
+        });
+        unlockedAbilities.forEach(ability -> {
+            if (ability.getClass() == abilityClass)
+                contains = true;
+        });
+        availableAbilities.forEach(ability -> {
+            if (ability.getClass() == abilityClass)
+                contains = true;
+        });
+        return contains;
+    }
+
+    /**
+     * Modders: Use {@link AbilitiesHandler#getUnmodifiableConstantAbilities()} instead
+     */
+    @ApiStatus.Internal
     public List<Ability> getConstantAbilities() {
         return constantAbilities;
     }
 
+    public List<Ability> getUnmodifiableConstantAbilities() {
+        return Collections.unmodifiableList(getConstantAbilities());
+    }
+
+    /**
+     * Modders: Use {@link AbilitiesHandler#getUnmodifiableUnlockedAbilities()} instead
+     */
+    @ApiStatus.Internal
     public List<Ability> getUnlockedAbilities() {
         return unlockedAbilities;
     }
 
+    public List<Ability> getUnmodifiableUnlockedAbilities() {
+        return Collections.unmodifiableList(getUnlockedAbilities());
+    }
+
+    /**
+     * Modders: Use {@link AbilitiesHandler#getUnmodifiableAvailableAbilities()} instead
+     */
+    @ApiStatus.Internal
     public List<Ability> getAvailableAbilities() {
         return availableAbilities;
     }
 
+    public List<Ability> getUnmodifiableAvailableAbilities() {
+        return Collections.unmodifiableList(getAvailableAbilities());
+    }
+
+    /**
+     * Modders: Use {@link AbilitiesHandler#getUnmodifiableEnabledAbilities()} instead
+     */
+    @ApiStatus.Internal
     public List<Ability> getEnabledAbilities() {
         return enabledAbilities;
     }
+    public List<Ability> getUnmodifiableEnabledAbilities() {
+        return Collections.unmodifiableList(getEnabledAbilities());
+    }
+
 
     public void scroll(ScrollDirection direction) {
         List<Ability> newUnlockedAbilities = new ArrayList<>();

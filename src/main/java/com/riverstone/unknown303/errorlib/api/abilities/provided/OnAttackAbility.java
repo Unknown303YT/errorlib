@@ -5,13 +5,16 @@ import com.riverstone.unknown303.errorlib.api.abilities.origin.AbilityOrigin;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.event.entity.player.AttackEntityEvent;
 
-public class CodeOnAttackAbility extends Ability {
-    private final OnAttack onAttack;
+import java.util.List;
 
-    public CodeOnAttackAbility(AbilityOrigin origin, OnAttack onAttack) {
+public class OnAttackAbility extends Ability {
+    private final OnAttack onAttackCode;
+
+    public OnAttackAbility(AbilityOrigin origin, OnAttack onAttack) {
         super(origin);
-        this.onAttack = onAttack;
+        this.onAttackCode = onAttack;
     }
 
     @Override
@@ -23,12 +26,17 @@ public class CodeOnAttackAbility extends Ability {
     @Override
     public void disable(Player player, Level level) {}
 
-    public OnAttack getOnAttack() {
-        return onAttack;
+    @Override
+    public List<EventContainer<?>> getForgeEvents() {
+        return List.of(new EventContainer<>(this::onAttack));
+    }
+
+    public void onAttack(AttackEntityEvent event) {
+        onAttackCode.run(event.getEntity().level(), event.getEntity(), event.getTarget());
     }
 
     @FunctionalInterface
     public interface OnAttack {
-        void run(Player attacker, Entity target);
+        void run(Level level, Player attacker, Entity target);
     }
 }

@@ -5,6 +5,7 @@ import com.riverstone.unknown303.errorlib.ErrorMod;
 import com.riverstone.unknown303.errorlib.api.abilities.PlayerAbilitiesProvider;
 import com.riverstone.unknown303.errorlib.api.helpers.keybind.Keybind;
 import com.riverstone.unknown303.errorlib.api.helpers.keybind.KeybindHelper;
+import net.minecraft.CrashReport;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
@@ -64,5 +65,20 @@ public class ErrorKeybinds {
         String path = keybind.getName().getPath();
         String id = path.replace("ability_slot_", "");
         return Integer.parseInt(id);
+    }
+
+    public static Keybind getAbilitySlotKeybind(int slot) {
+        return switch (slot) {
+            case 0 -> ABILITIES_SLOT_0;
+            case 1 -> ABILITIES_SLOT_1;
+            case 2 -> ABILITIES_SLOT_2;
+            case 3 -> ABILITIES_SLOT_3;
+            case 4 -> ABILITIES_SLOT_4;
+            default -> {
+                IllegalArgumentException exception = new IllegalArgumentException("Expected slot id of 0-4, got " + slot);
+                Minecraft.crash(CrashReport.forThrowable(exception, exception.getMessage()));
+                throw new RuntimeException(exception);
+            }
+        };
     }
 }
