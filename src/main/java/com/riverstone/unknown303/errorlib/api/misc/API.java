@@ -9,7 +9,7 @@ public class API {
 
     /**
      * OVERRIDE THIS:
-     * @param modEventBus The mod api's {@linkplain IEventBus}.
+     * @param modEventBus The mod api's {@link IEventBus}.
      */
     @ApiStatus.OverrideOnly
     public static void init(IEventBus modEventBus) {}

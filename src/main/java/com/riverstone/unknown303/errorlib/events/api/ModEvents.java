@@ -1,8 +1,10 @@
 package com.riverstone.unknown303.errorlib.events.api;
 
+import com.riverstone.unknown303.errorlib.api.abilities.Abilities;
 import com.riverstone.unknown303.errorlib.api.abilities.Ability;
 import com.riverstone.unknown303.errorlib.api.misc.ErrorRegistries;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.RegisterEvent;
@@ -14,7 +16,12 @@ public class ModEvents {
 
     public static class Common {
         @SubscribeEvent
-        public static void registerEvent(RegisterEvent event) {
+        public static void onRegisterCaps(RegisterCapabilitiesEvent event) {
+            event.register(Abilities.class);
+        }
+
+        @SubscribeEvent
+        public static void onRegister(RegisterEvent event) {
             if (event.getRegistryKey() == ErrorRegistries.Keys.ABILITIES) {
                 IForgeRegistry<Ability> reg = event.getForgeRegistry();
                 if (reg != null) {

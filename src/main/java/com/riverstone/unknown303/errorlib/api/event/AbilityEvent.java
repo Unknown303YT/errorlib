@@ -108,7 +108,7 @@ public class AbilityEvent extends PlayerEvent {
 
     /**
      * This event is fired whenever an {@link Ability} is ticked in<br>
-     * {@link com.riverstone.unknown303.errorlib.events.api.ForgeEvents.Common#playerTick(TickEvent.PlayerTickEvent)}.<br>
+     * {@link com.riverstone.unknown303.errorlib.events.api.ForgeEvents.Common#onPlayerTick(TickEvent.PlayerTickEvent)}.<br>
      * <br>
      * This event is {@link Cancelable}.<br>
      * <br>
