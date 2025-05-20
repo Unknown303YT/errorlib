@@ -7,11 +7,12 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.Event;
 import org.jetbrains.annotations.ApiStatus;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class AbilitiesHandler {
+public class AbilitiesHandler implements Serializable {
     private List<Ability> constantAbilities = new ArrayList<>();
 
     private List<Ability> unlockedAbilities = new ArrayList<>();

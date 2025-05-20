@@ -1,18 +1,26 @@
 package com.riverstone.unknown303.errorlib.api.abilities;
 
+import com.riverstone.unknown303.errorlib.ErrorMod;
 import com.riverstone.unknown303.errorlib.api.abilities.misc.AbilityContext;
 import com.riverstone.unknown303.errorlib.api.event.AbilityEvent;
 import com.riverstone.unknown303.errorlib.api.helpers.keybind.Keybind;
 import com.riverstone.unknown303.errorlib.misc.ErrorKeybinds;
+import net.minecraft.CrashReport;
+import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.Event;
 import org.jetbrains.annotations.ApiStatus;
 
+import java.io.*;
 import java.util.Objects;
 
-public class Abilities {
+public class Abilities implements IAbilities {
+    public static final ResourceLocation ABILITIES_ID =
+            ResourceLocation.fromNamespaceAndPath(ErrorMod.MOD_ID, "abilities_properties");
+
     private final AbilitiesHandler handler = new AbilitiesHandler();
     private volatile boolean isDown;
 
@@ -126,5 +134,24 @@ public class Abilities {
     public Abilities copyFrom(Abilities oldAbilities) {
         handler.loadAbilities(oldAbilities.handler);
         return this;
+    }
+
+    @Override
+    public byte[] encode() throws IOException {
+        ByteArrayOutputStream byteOutput = new ByteArrayOutputStream();
+        ObjectOutputStream objectOutput = new ObjectOutputStream(byteOutput);
+        objectOutput.writeObject(this);
+        objectOutput.close();
+        return byteOutput.toByteArray();
+    }
+
+    public static Abilities decode(byte[] data) throws IOException, ClassNotFoundException {
+        ByteArrayInputStream byteInput = new ByteArrayInputStream(data);
+        ObjectInputStream objectInput = new ObjectInputStream(byteInput);
+        if (objectInput.readObject() instanceof Abilities abilities)
+            return abilities;
+        IllegalArgumentException exception = new IllegalArgumentException("Byte Array provided not Abilities!");
+        Minecraft.crash(CrashReport.forThrowable(exception, exception.getMessage()));
+        throw new RuntimeException(exception);
     }
 }
