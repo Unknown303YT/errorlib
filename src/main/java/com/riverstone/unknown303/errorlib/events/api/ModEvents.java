@@ -5,6 +5,8 @@ import com.riverstone.unknown303.errorlib.api.abilities.Ability;
 import com.riverstone.unknown303.errorlib.api.misc.ErrorRegistries;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
+import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.RegisterEvent;
@@ -20,7 +22,7 @@ public class ModEvents {
             event.register(Abilities.class);
         }
 
-        @SubscribeEvent
+        @SubscribeEvent(priority = EventPriority.LOWEST)
         public static void onRegister(RegisterEvent event) {
             if (event.getRegistryKey() == ErrorRegistries.Keys.ABILITIES) {
                 IForgeRegistry<Ability> reg = event.getForgeRegistry();
