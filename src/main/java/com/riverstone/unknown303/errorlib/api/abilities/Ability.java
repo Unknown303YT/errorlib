@@ -8,6 +8,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.common.util.NonNullSupplier;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -20,7 +21,7 @@ import java.util.function.Supplier;
 
 public abstract class Ability {
     private final AbilityOrigin origin;
-    private Supplier<IEventBus> modEventBus = null;
+    private NonNullSupplier<IEventBus> modEventBus = null;
 
     public Ability(AbilityOrigin origin) {
         this.origin = origin;
@@ -51,7 +52,7 @@ public abstract class Ability {
         return origin.isAvailable(player, level);
     }
 
-    public Ability setModEventBus(Supplier<IEventBus> modEventBus) {
+    public Ability setModEventBus(NonNullSupplier<IEventBus> modEventBus) {
         this.modEventBus = modEventBus;
         return this;
     }
