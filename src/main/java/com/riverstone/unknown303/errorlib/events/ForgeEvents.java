@@ -12,13 +12,6 @@ public class ForgeEvents {
     }
 
     public static class Common {
-        @SubscribeEvent
-        public static void onPlayerAttacks(AttackEntityEvent event) {
-            Player player = event.getEntity();
-            Entity entity = event.getTarget();
-            player.getCapability(PlayerAbilitiesProvider.PLAYER_ABILITIES).ifPresent(abilities -> {
-//                if (abilities)
-            });
-        }
+
     }
 }

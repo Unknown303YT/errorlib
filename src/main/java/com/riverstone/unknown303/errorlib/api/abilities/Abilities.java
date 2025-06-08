@@ -1,21 +1,22 @@
 package com.riverstone.unknown303.errorlib.api.abilities;
 
 import com.riverstone.unknown303.errorlib.ErrorMod;
-import com.riverstone.unknown303.errorlib.api.abilities.misc.AbilityContext;
+import com.riverstone.unknown303.errorlib.api.abilities.ability.Ability;
+import com.riverstone.unknown303.errorlib.api.abilities.ability.misc.AbilityContext;
 import com.riverstone.unknown303.errorlib.api.event.AbilityEvent;
 import com.riverstone.unknown303.errorlib.api.helpers.keybind.Keybind;
+import com.riverstone.unknown303.errorlib.api.misc.ErrorRegistries;
 import com.riverstone.unknown303.errorlib.misc.ErrorKeybinds;
 import net.minecraft.CrashReport;
 import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.eventbus.api.Event;
 import org.jetbrains.annotations.ApiStatus;
 
 import java.io.*;
-import java.util.Objects;
 
 public class Abilities implements IAbilities {
     public static final ResourceLocation ABILITIES_ID =
@@ -40,12 +41,12 @@ public class Abilities implements IAbilities {
         AbilityEvent.AbilityUnlockedEvent abilityUnlockedEvent = new AbilityEvent.AbilityUnlockedEvent(player, this, ability);
         if (!MinecraftForge.EVENT_BUS.post(abilityUnlockedEvent)) {
             if (ability.getContext() == AbilityContext.CONSTANT){
-                handler.unlockConstant(ability, player, this, abilityUnlockedEvent);
+                handler.unlockConstant(ability, abilityUnlockedEvent);
                 if (!MinecraftForge.EVENT_BUS.post(new AbilityEvent.AbilityEnabledEvent(player, this, ability)))
                     ability.enable(player, player.level());
                 return;
             }
-            handler.unlockAbility(ability, player, this, abilityUnlockedEvent);
+            handler.unlockAbility(ability);
         }
     }
 
@@ -55,16 +56,30 @@ public class Abilities implements IAbilities {
                 handler.lockConstant(ability);
                 if (!MinecraftForge.EVENT_BUS.post(new AbilityEvent.AbilityDisabledEvent(player, this, ability)))
                     ability.disable(player, player.level());
-            } else handler.lockAbility(ability);
+            } else {
+                if (handler.getEnabledAbilities().contains(ability))
+                    disable(ability, player);
+                handler.lockAbility(ability);
+            }
         }
     }
 
     @ApiStatus.Internal
-    public void pressAbilityKeybind(Keybind keybind, Player player) {
-        int slot = ErrorKeybinds.getAbilitySlot(keybind);
-        Ability ability = handler.getAvailableAbilities().get(slot);
-        if (!handler.getEnabledAbilities().contains(ability)) enable(ability, player, slot);
-        else disable(ability, player);
+    public void pressAbilityKeybind(int keybindSlot, Player player) {
+        if (!handler.getAvailableAbilities().isEmpty()) {
+            if (handler.getAvailableAbilities().size() > keybindSlot) {
+                Ability ability = handler.getAvailableAbilities().get(keybindSlot);
+                if (!handler.getEnabledAbilities().contains(ability)) enable(ability, player, keybindSlot);
+                else disable(ability, player);
+            } else
+                player.sendSystemMessage(Component.literal("There are not that many Abilities!"));
+            player.sendSystemMessage(Component.literal("You pressed slot %s".formatted(keybindSlot)));
+        } else
+            player.sendSystemMessage(Component.literal("No Abilities!"));
+        player.sendSystemMessage(Component.literal("Available Abilities: " + handler.getAvailableAbilities().size()));
+        player.sendSystemMessage(Component.literal("Unlocked Abilities: " + handler.getUnlockedAbilities().size()));
+        player.sendSystemMessage(Component.literal("Constant Abilities: " + handler.getConstantAbilities().size()));
+        player.sendSystemMessage(Component.literal("Registered Abilities: " + ErrorRegistries.ABILITIES.getValues().size()));
     }
 
     public void enable(Ability ability, Player player, int slot) {
@@ -117,7 +132,7 @@ public class Abilities implements IAbilities {
         return data;
     }
 
-    public Abilities loadData(CompoundTag data) {
+    public IAbilities loadData(CompoundTag data) {
         Abilities fromNBT = fromNBT(data);
         return copyFrom(fromNBT);
     }
@@ -131,8 +146,8 @@ public class Abilities implements IAbilities {
         return abilities;
     }
 
-    public Abilities copyFrom(Abilities oldAbilities) {
-        handler.loadAbilities(oldAbilities.handler);
+    public IAbilities copyFrom(IAbilities oldAbilities) {
+        handler.loadAbilities(oldAbilities.getHandler());
         return this;
     }
 

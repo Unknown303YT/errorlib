@@ -1,15 +1,18 @@
 package com.riverstone.unknown303.errorlib.events.api;
 
+import com.riverstone.unknown303.errorlib.ErrorMod;
 import com.riverstone.unknown303.errorlib.api.abilities.Abilities;
-import com.riverstone.unknown303.errorlib.api.abilities.Ability;
+import com.riverstone.unknown303.errorlib.api.abilities.ability.Ability;
 import com.riverstone.unknown303.errorlib.api.misc.ErrorRegistries;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
-import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 import net.minecraftforge.registries.RegisterEvent;
+
+import java.util.function.Consumer;
 
 public class ModEvents {
     public static class Client {
@@ -28,10 +31,14 @@ public class ModEvents {
                 IForgeRegistry<Ability> reg = event.getForgeRegistry();
                 if (reg != null) {
                     reg.getValues().forEach(ability -> {
-                        if (!ability.getForgeEvents().isEmpty())
-                            ability.getForgeEvents().forEach(eventContainer -> eventContainer.add(MinecraftForge.EVENT_BUS));
-                        if (!ability.getModEvents().isEmpty())
-                            ability.getModEvents().forEach(eventContainer -> eventContainer.add(ability.getModEventBus()));
+                        Consumer<IEventBus> registerForgeEvents =
+                                ability.registerForgeEvents();
+                        Consumer<IEventBus> registerModEvents =
+                                ability.registerModEvents();
+                        if (registerForgeEvents != null)
+                            registerForgeEvents.accept(MinecraftForge.EVENT_BUS);
+                        if (registerModEvents != null)
+                            registerModEvents.accept(ErrorMod.eventBus());
                     });
                 }
             }

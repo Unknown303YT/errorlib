@@ -1,8 +1,8 @@
 package com.riverstone.unknown303.errorlib.api.event;
 
 import com.riverstone.unknown303.errorlib.api.abilities.Abilities;
-import com.riverstone.unknown303.errorlib.api.abilities.Ability;
-import com.riverstone.unknown303.errorlib.api.abilities.misc.AbilityContext;
+import com.riverstone.unknown303.errorlib.api.abilities.ability.Ability;
+import com.riverstone.unknown303.errorlib.api.abilities.ability.misc.AbilityContext;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;

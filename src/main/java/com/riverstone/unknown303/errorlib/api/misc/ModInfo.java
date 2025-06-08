@@ -10,15 +10,9 @@ import java.util.function.Supplier;
 public class ModInfo {
     private final List<ErrorLibHelper.Registrable> registrableHelpers = new ArrayList<>();
     private final String modId;
-    private Supplier<IEventBus> eventBus = () -> null;
 
     public ModInfo(String modId) {
         this.modId = modId;
-    }
-
-    public ModInfo modEventBus(IEventBus eventBus) {
-        this.eventBus = () -> eventBus;
-        return this;
     }
 
     public <T extends ErrorLibHelper.Registrable> void registrableHelper(T helper) {
@@ -29,7 +23,12 @@ public class ModInfo {
         return this.modId;
     }
 
-    public void register() {
-        registrableHelpers.forEach(registrable -> registrable.register(eventBus.get()));
+    public List<ErrorLibHelper.Registrable> getRegistrableHelpers() {
+        return registrableHelpers;
+    }
+
+    public void register(IEventBus eventBus) {
+        registrableHelpers.forEach(registrable ->
+                registrable.register(eventBus));
     }
 }

@@ -6,7 +6,6 @@ import net.minecraft.client.KeyMapping;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ import java.util.List;
 import java.util.function.BiConsumer;
 
 public class KeybindHelper extends ErrorLibHelper.Registrable {
-    private final List<Keybind> keybinds = new ArrayList<>();
+    private final List<KeybindConsumer> eventDispatchers = new ArrayList<>();
 
     public KeybindHelper(ModInfo modInfo) {
         super(modInfo);
@@ -23,14 +22,14 @@ public class KeybindHelper extends ErrorLibHelper.Registrable {
     public Keybind setConsumers(Keybind keybind, BiConsumer<InputEvent, KeyMapping> onClick,
                                 BiConsumer<InputEvent, KeyMapping> onHold,
                                 BiConsumer<RegisterKeyMappingsEvent, KeyMapping> onRegister) {
-        keybind.setOnClick(onClick, false);
-        keybind.setOnHold(onHold, false);
+        keybind.setOnClick(onClick);
+        keybind.setOnHold(onHold);
         keybind.setOnRegister(onRegister);
         return keybind;
     }
 
     public Keybind add(Keybind keybind) {
-        keybinds.add(keybind);
+        eventDispatchers.add(keybind::eventDispatcher);
         return keybind;
     }
 
@@ -42,7 +41,12 @@ public class KeybindHelper extends ErrorLibHelper.Registrable {
 
     @Override
     public void register(IEventBus eventBus) {
-        keybinds.forEach(eventBus::register);
-        keybinds.forEach(keybind -> eventBus.register(keybind.getEventDispatcher()));
+        eventDispatchers.forEach(keybindConsumer ->
+                keybindConsumer.accept(eventBus));
+    }
+
+    @FunctionalInterface
+    public interface KeybindConsumer {
+        void accept(IEventBus given);
     }
 }

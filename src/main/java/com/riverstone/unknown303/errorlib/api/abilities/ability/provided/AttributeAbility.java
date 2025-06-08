@@ -1,7 +1,7 @@
-package com.riverstone.unknown303.errorlib.api.abilities.provided;
+package com.riverstone.unknown303.errorlib.api.abilities.ability.provided;
 
-import com.riverstone.unknown303.errorlib.api.abilities.Ability;
-import com.riverstone.unknown303.errorlib.api.abilities.origin.AbilityOrigin;
+import com.riverstone.unknown303.errorlib.api.abilities.ability.Ability;
+import com.riverstone.unknown303.errorlib.api.abilities.ability.origin.AbilityOrigin;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -12,9 +12,9 @@ public class AttributeAbility extends Ability {
     private final Attribute targetAttribute;
     private final AttributeModifier modifier;
 
-    public AttributeAbility(AbilityOrigin origin, Attribute targetAttribute,
+    public AttributeAbility(Properties properties, Attribute targetAttribute,
                             AttributeModifier modifier) {
-        super(origin);
+        super(properties);
         this.targetAttribute = targetAttribute;
         this.modifier = modifier;
     }

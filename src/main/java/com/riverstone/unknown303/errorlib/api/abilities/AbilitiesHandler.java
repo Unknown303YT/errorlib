@@ -1,9 +1,9 @@
 package com.riverstone.unknown303.errorlib.api.abilities;
 
+import com.riverstone.unknown303.errorlib.api.abilities.ability.Ability;
 import com.riverstone.unknown303.errorlib.api.event.AbilityEvent;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.Event;
 import org.jetbrains.annotations.ApiStatus;
 
@@ -22,13 +22,13 @@ public class AbilitiesHandler implements Serializable {
     private boolean contains = false;
 
     @ApiStatus.Internal
-    public void unlockConstant(Ability ability, Player player, Abilities abilities, AbilityEvent.AbilityUnlockedEvent abilityUnlockedEvent) {
+    public void unlockConstant(Ability ability, AbilityEvent.AbilityUnlockedEvent abilityUnlockedEvent) {
         if (abilityUnlockedEvent.getResult() == Event.Result.ALLOW ||
                 (abilityUnlockedEvent.getResult() == Event.Result.DEFAULT && !contains(ability))) constantAbilities.add(ability);
     }
 
     @ApiStatus.Internal
-    public void unlockAbility(Ability ability, Player player, Abilities abilities, AbilityEvent.AbilityUnlockedEvent abilityUnlockedEvent) {
+    public void unlockAbility(Ability ability) {
         if (!contains(ability)) forceUnlockAbility(ability);
     }
 
@@ -51,6 +51,7 @@ public class AbilitiesHandler implements Serializable {
     @ApiStatus.Internal
     public void forceLockAbility(Ability ability) {
         availableAbilities.remove(ability);
+        enabledAbilities.remove(ability);
         unlockedAbilities.remove(ability);
     }
 

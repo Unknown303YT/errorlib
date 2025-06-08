@@ -1,5 +1,6 @@
 package com.riverstone.unknown303.errorlib.api.abilities;
 
+import com.riverstone.unknown303.errorlib.api.abilities.ability.Ability;
 import com.riverstone.unknown303.errorlib.api.helpers.keybind.Keybind;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
@@ -17,7 +18,7 @@ public interface IAbilities extends Serializable {
     void lockAbility(Ability ability, Player player);
 
     @ApiStatus.Internal
-    void pressAbilityKeybind(Keybind keybind, Player player);
+    void pressAbilityKeybind(int keybindSlot, Player player);
 
     void enable(Ability ability, Player player, int slot);
 
@@ -31,10 +32,12 @@ public interface IAbilities extends Serializable {
 
     CompoundTag saveData();
 
-    Abilities loadData(CompoundTag data);
+    IAbilities loadData(CompoundTag data);
 
-    Abilities copyFrom(Abilities oldAbilities);
+    IAbilities copyFrom(IAbilities oldAbilities);
 
     @ApiStatus.Internal
     byte[] encode() throws IOException;
+
+    AbilitiesHandler getHandler();
 }
