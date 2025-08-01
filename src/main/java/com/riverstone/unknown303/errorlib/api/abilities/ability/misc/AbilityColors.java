@@ -1,10 +1,7 @@
 package com.riverstone.unknown303.errorlib.api.abilities.ability.misc;
 
 import com.riverstone.unknown303.errorlib.ErrorMod;
-import com.riverstone.unknown303.errorlib.api.abilities.ability.Ability;
 import net.minecraft.resources.ResourceLocation;
-
-import javax.annotation.Nullable;
 
 public enum AbilityColors implements AbilityColor {
     NO_COLOR("no_color"),
@@ -25,15 +22,20 @@ public enum AbilityColors implements AbilityColor {
     DARK_GREY("dark_grey"),
     BLACK("black");
 
-    @Nullable
+    private final String name;
     private final ResourceLocation texture;
 
-    AbilityColors(@Nullable String tex) {
+    AbilityColors(String tex) {
+        this.name = tex.toUpperCase();
         this.texture = ResourceLocation.fromNamespaceAndPath(ErrorMod.MOD_ID,
                 "textures/ability/border/%s.png".formatted(tex));
     }
 
-    @Nullable
+    @Override
+    public String colorName() {
+        return this.name;
+    }
+
     @Override
     public ResourceLocation textureLocation() {
         return this.texture;

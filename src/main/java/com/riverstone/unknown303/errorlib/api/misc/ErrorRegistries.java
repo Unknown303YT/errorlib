@@ -16,7 +16,7 @@ public class ErrorRegistries {
 
     public static class Keys {
         public static final ResourceKey<Registry<Ability>> ABILITIES = ErrorHelpers.REGISTRY_HELPER.createRegistryKey(
-                ResourceLocation.fromNamespaceAndPath("abilities", ErrorMod.MOD_ID));
+                ResourceLocation.fromNamespaceAndPath(ErrorMod.MOD_ID, "abilities"));
 
         private static void load() {
             List<ResourceKey<Registry<Ability>>> KEYS = List.of(ABILITIES);

@@ -5,7 +5,6 @@ import net.minecraftforge.eventbus.api.IEventBus;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Supplier;
 
 public class ModInfo {
     private final List<ErrorLibHelper.Registrable> registrableHelpers = new ArrayList<>();

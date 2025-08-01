@@ -11,7 +11,6 @@ import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 
-import java.util.List;
 import java.util.function.Consumer;
 
 public class FullInvisAbility extends Ability {

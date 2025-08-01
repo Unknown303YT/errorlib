@@ -3,10 +3,8 @@ package com.riverstone.unknown303.errorlib;
 import com.mojang.logging.LogUtils;
 import com.riverstone.unknown303.errorlib.abilities.ErrorAbilities;
 import com.riverstone.unknown303.errorlib.api.ErrorAPI;
-import com.riverstone.unknown303.errorlib.api.helpers.keybind.Keybind;
 import com.riverstone.unknown303.errorlib.events.ForgeEvents;
 import com.riverstone.unknown303.errorlib.events.ModEvents;
-import com.riverstone.unknown303.errorlib.misc.ErrorKeybinds;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -29,7 +27,8 @@ public class ErrorMod {
 
         ErrorAPI.load();
 
-        LOGGER.debug("LIST OF REGISTERABLES: " + ErrorHelpers.ERRORLIB_INFO.getRegistrableHelpers().size());
+        LOGGER.debug("LIST OF REGISTRABLE HELPERS: " +
+                ErrorHelpers.ERRORLIB_INFO.getRegistrableHelpers().size());
 
 
         ErrorAPI.init(modEventBus);
@@ -53,18 +52,21 @@ public class ErrorMod {
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
+        ErrorAPI.commonSetup(event);
         LOGGER.info("Starting Common Setup for ErrorLib");
 
         LOGGER.info("Common Setup for ErrorLib complete");
     }
 
     private void serverSetup(ServerStartingEvent event) {
+        ErrorAPI.serverSetup(event);
         LOGGER.info("Starting Server Setup for ErrorLib");
 
         LOGGER.info("Server Setup for ErrorLib complete");
     }
 
     private void clientSetup(FMLClientSetupEvent event) {
+        ErrorAPI.clientSetup(event);
         LOGGER.info("Starting Client Setup for ErrorLib");
 
         LOGGER.info("Client Setup for ErrorLib complete");

@@ -1,15 +1,16 @@
 package com.riverstone.unknown303.errorlib.api.abilities;
 
 import com.riverstone.unknown303.errorlib.api.abilities.ability.Ability;
-import com.riverstone.unknown303.errorlib.api.helpers.keybind.Keybind;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Player;
 import org.jetbrains.annotations.ApiStatus;
 
 import java.io.IOException;
-import java.io.Serializable;
 
-public interface IAbilities extends Serializable {
+public interface IAbilities {
+    boolean contains(Ability ability);
+
     @ApiStatus.Internal
     void tickAbilities(Player player);
 
@@ -22,9 +23,7 @@ public interface IAbilities extends Serializable {
 
     void enable(Ability ability, Player player, int slot);
 
-    void enableToggle(Ability ability, Player player, int slot);
-
-    void enableHold(Ability ability, Player player, int slot);
+    void enableDefault(Ability ability, Player player, int slot);
 
     void enableInstant(Ability ability, Player player);
 
@@ -37,7 +36,11 @@ public interface IAbilities extends Serializable {
     IAbilities copyFrom(IAbilities oldAbilities);
 
     @ApiStatus.Internal
-    byte[] encode() throws IOException;
+    void encode(FriendlyByteBuf buf) throws IOException;
 
     AbilitiesHandler getHandler();
+
+    IAbilities setOwner(Player player);
+
+    String getOwner();
 }

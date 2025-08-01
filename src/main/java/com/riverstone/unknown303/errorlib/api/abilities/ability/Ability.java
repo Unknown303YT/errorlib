@@ -6,18 +6,14 @@ import com.riverstone.unknown303.errorlib.api.abilities.ability.misc.AbilityColo
 import com.riverstone.unknown303.errorlib.api.abilities.ability.misc.AbilityContext;
 import com.riverstone.unknown303.errorlib.api.abilities.ability.origin.AbilityOrigin;
 import com.riverstone.unknown303.errorlib.api.misc.ErrorRegistries;
-import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.Event;
-import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 
 import javax.annotation.Nullable;
-import java.util.List;
 import java.util.Objects;
 import java.util.function.Consumer;
 
@@ -86,6 +82,8 @@ public abstract class Ability {
     }
 
     public static Ability fromID(String id) {
+        if (Objects.equals(id, "null"))
+            return null;
         return fromID(ResourceLocation.parse(id));
     }
 

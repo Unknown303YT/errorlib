@@ -3,7 +3,6 @@ package com.riverstone.unknown303.errorlib.api.abilities;
 import com.riverstone.unknown303.errorlib.api.abilities.ability.Ability;
 import com.riverstone.unknown303.errorlib.api.event.AbilityEvent;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.eventbus.api.Event;
 import org.jetbrains.annotations.ApiStatus;
 
@@ -21,26 +20,42 @@ public class AbilitiesHandler implements Serializable {
 
     private boolean contains = false;
 
-    @ApiStatus.Internal
-    public void unlockConstant(Ability ability, AbilityEvent.AbilityUnlockedEvent abilityUnlockedEvent) {
-        if (abilityUnlockedEvent.getResult() == Event.Result.ALLOW ||
-                (abilityUnlockedEvent.getResult() == Event.Result.DEFAULT && !contains(ability))) constantAbilities.add(ability);
+    public AbilitiesHandler() {
+        for (int i = 0; i < 5; i++) {
+            availableAbilities.add(i, null);
+            enabledAbilities.add(i, null);
+        }
     }
 
     @ApiStatus.Internal
-    public void unlockAbility(Ability ability) {
-        if (!contains(ability)) forceUnlockAbility(ability);
+    public void unlockConstant(Ability ability, AbilityEvent.AbilityUnlockedEvent abilityUnlockedEvent) {
+        if (abilityUnlockedEvent.getResult() == Event.Result.ALLOW ||
+                (abilityUnlockedEvent.getResult() == Event.Result.DEFAULT &&
+                        !contains(ability))) constantAbilities.add(ability);
+    }
+
+    @ApiStatus.Internal
+    public void unlockAbility(Ability ability, AbilityEvent.AbilityUnlockedEvent abilityUnlockedEvent) {
+        if (abilityUnlockedEvent.getResult() == Event.Result.ALLOW ||
+                (abilityUnlockedEvent.getResult() == Event.Result.DEFAULT &&
+                        !contains(ability))) forceUnlockAbility(ability);
     }
 
     @ApiStatus.Internal
     public void forceUnlockAbility(Ability ability) {
-        if (useAvailable()) availableAbilities.add(ability);
+        if (useAvailable()) availableAbilities.set(getNextAvailable(), ability);
         else unlockedAbilities.add(ability);
     }
 
-    @ApiStatus.Internal
-    public void lockConstant(Ability ability) {
-        if (contains(ability)) constantAbilities.remove(ability);
+    private int getNextAvailable() {
+        int slot = 0;
+        for (Ability ability : availableAbilities) {
+            if (ability == null) {
+                return slot;
+            }
+            slot++;
+        }
+        return -1;
     }
 
     @ApiStatus.Internal
@@ -155,12 +170,18 @@ public class AbilitiesHandler implements Serializable {
 
     // SAVING
 
+    private String abilityId(Ability ability) {
+        if (ability == null)
+            return "null";
+        return ability.toString();
+    }
+
     public CompoundTag getConstantAbilitiesNBT() {
         CompoundTag nbt = new CompoundTag();
 
         nbt.putInt("count", constantAbilities.size());
         for (int i = 0; i < constantAbilities.size(); i++)
-            nbt.putString("ability" + i, constantAbilities.get(i).toString());
+            nbt.putString("ability" + i, abilityId(constantAbilities.get(i)));
 
         return nbt;
     }
@@ -170,7 +191,7 @@ public class AbilitiesHandler implements Serializable {
 
         nbt.putInt("count", unlockedAbilities.size());
         for (int i = 0; i < unlockedAbilities.size(); i++)
-            nbt.putString("ability" + i, unlockedAbilities.get(i).toString());
+            nbt.putString("ability" + i, abilityId(unlockedAbilities.get(i)));
 
         return nbt;
     }
@@ -181,7 +202,7 @@ public class AbilitiesHandler implements Serializable {
         int count = Math.min(enabledAbilities.size(), 5);
         nbt.putInt("count", count);
         for (int i = 0; i < count; i++)
-            nbt.putString("ability" + i, enabledAbilities.get(i).toString());
+            nbt.putString("ability" + i, abilityId(enabledAbilities.get(i)));
 
         return nbt;
     }
@@ -192,7 +213,7 @@ public class AbilitiesHandler implements Serializable {
         int count = Math.min(enabledAbilities.size(), 5);
         nbt.putInt("count", count);
         for (int i = 0; i < count; i++)
-            nbt.putString("ability" + i, availableAbilities.get(i).toString());
+            nbt.putString("ability" + i, abilityId(availableAbilities.get(i)));
 
         return nbt;
     }
@@ -215,14 +236,14 @@ public class AbilitiesHandler implements Serializable {
 
     public void loadEnabledAbilitiesNBT(CompoundTag nbt) {
         for (int i = 0; i < nbt.getInt("count"); i++) {
-            enabledAbilities.add(i, Ability.fromID(
+            enabledAbilities.set(i, Ability.fromID(
                     nbt.getString("ability" + i)));
         }
     }
 
     public void loadAvailableAbilitiesNBT(CompoundTag nbt) {
         for (int i = 0; i < nbt.getInt("count"); i++) {
-            availableAbilities.add(i, Ability.fromID(
+            availableAbilities.set(i, Ability.fromID(
                     nbt.getString("ability" + i)));
         }
     }

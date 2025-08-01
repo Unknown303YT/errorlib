@@ -19,8 +19,6 @@ public class Keybind {
     private final ResourceLocation name;
     private final KeyMapping keyMapping;
 
-    private EventDispatcher modEventDispatcher = null;
-
     private EventDispatcher eventDispatcher = null;
 
     private BiConsumer<InputEvent, Keybind> onInput;

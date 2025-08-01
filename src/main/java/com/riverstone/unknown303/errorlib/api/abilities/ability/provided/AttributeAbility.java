@@ -1,7 +1,6 @@
 package com.riverstone.unknown303.errorlib.api.abilities.ability.provided;
 
 import com.riverstone.unknown303.errorlib.api.abilities.ability.Ability;
-import com.riverstone.unknown303.errorlib.api.abilities.ability.origin.AbilityOrigin;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;

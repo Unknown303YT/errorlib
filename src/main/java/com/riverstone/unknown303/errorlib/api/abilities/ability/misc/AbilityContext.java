@@ -4,5 +4,15 @@ public enum AbilityContext {
     CONSTANT,
     TOGGLE,
     HOLD,
-    INSTANT
+    INSTANT;
+
+    @Override
+    public String toString() {
+        return switch (this) {
+            case CONSTANT -> "CONSTANT";
+            case TOGGLE -> "TOGGLE";
+            case HOLD -> "HOLD";
+            case INSTANT -> "INSTANT";
+        };
+    }
 }

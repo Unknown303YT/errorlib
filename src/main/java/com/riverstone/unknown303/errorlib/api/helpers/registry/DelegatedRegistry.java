@@ -17,7 +17,6 @@ import java.util.function.Supplier;
 public class DelegatedRegistry<T> implements IForgeRegistry<T> {
     private final ResourceKey<Registry<T>> registryKey;
     private final Supplier<IForgeRegistry<T>> properRegistry;
-    private final EmptyRegistry<T> emptyRegistry;
 
     public DelegatedRegistry(ResourceKey<Registry<T>> registryKey,
                              Supplier<IForgeRegistry<T>> properRegistry) {
@@ -28,7 +27,6 @@ public class DelegatedRegistry<T> implements IForgeRegistry<T> {
                              Supplier<IForgeRegistry<T>> properRegistry) {
         this.registryKey = registryKey;
         this.properRegistry = properRegistry;
-        this.emptyRegistry = new EmptyRegistry<>(registryKey, defaultValue);
     }
 
     public DeferredRegister<T> createRegister(String modId) {
@@ -38,13 +36,13 @@ public class DelegatedRegistry<T> implements IForgeRegistry<T> {
     @Override
     public ResourceKey<Registry<T>> getRegistryKey() {
         if (properRegistry.get() != null) return properRegistry.get().getRegistryKey();
-        return emptyRegistry.getRegistryKey();
+        return registryKey;
     }
 
     @Override
     public ResourceLocation getRegistryName() {
         if (properRegistry.get() != null) return properRegistry.get().getRegistryName();
-        return emptyRegistry.getRegistryName();
+        return registryKey.location();
     }
 
     @Override

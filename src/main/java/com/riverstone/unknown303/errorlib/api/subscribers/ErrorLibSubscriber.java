@@ -10,8 +10,4 @@ import java.lang.annotation.Target;
 public @interface ErrorLibSubscriber {
     String modId();
     boolean autoRegister() default true;
-
-    @Retention(RetentionPolicy.RUNTIME)
-    @Target(ElementType.FIELD)
-    @interface ModInfo {}
 }
