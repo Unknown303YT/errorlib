@@ -1,6 +1,7 @@
 package com.riverstone.unknown303.errorlib.api.abilities.ability.provided;
 
 import com.riverstone.unknown303.errorlib.api.abilities.ability.Ability;
+import com.riverstone.unknown303.errorlib.api.misc.EasyTag;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -39,4 +40,10 @@ public class CreativeFlightAbility extends Ability {
         }
         player.onUpdateAbilities();
     }
+
+    @Override
+    public void saveAdditional(EasyTag tag) {}
+
+    @Override
+    public void loadAdditonal(EasyTag tag) {}
 }

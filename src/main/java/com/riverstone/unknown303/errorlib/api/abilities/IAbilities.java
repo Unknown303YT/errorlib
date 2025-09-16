@@ -3,6 +3,7 @@ package com.riverstone.unknown303.errorlib.api.abilities;
 import com.riverstone.unknown303.errorlib.api.abilities.ability.Ability;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import org.jetbrains.annotations.ApiStatus;
 
@@ -40,7 +41,5 @@ public interface IAbilities {
 
     AbilitiesHandler getHandler();
 
-    IAbilities setOwner(Player player);
-
-    String getOwner();
+    void log(ServerPlayer player);
 }

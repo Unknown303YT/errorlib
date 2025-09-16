@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.*;
 import java.util.function.Supplier;
 
-public class DelegatedRegistry<T> implements IForgeRegistry<T> {
+class DelegatedRegistry<T> implements IForgeRegistry<T> {
     private final ResourceKey<Registry<T>> registryKey;
     private final Supplier<IForgeRegistry<T>> properRegistry;
 

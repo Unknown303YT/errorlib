@@ -6,4 +6,8 @@ import net.minecraft.world.level.Level;
 @FunctionalInterface
 public interface AbilityOrigin {
     boolean isAvailable(Player player, Level level);
+
+    static AbilityOrigin empty() {
+        return (player, level) -> false;
+    }
 }

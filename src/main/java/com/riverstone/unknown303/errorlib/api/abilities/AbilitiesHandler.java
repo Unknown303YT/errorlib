@@ -2,6 +2,7 @@ package com.riverstone.unknown303.errorlib.api.abilities;
 
 import com.riverstone.unknown303.errorlib.api.abilities.ability.Ability;
 import com.riverstone.unknown303.errorlib.api.event.AbilityEvent;
+import com.riverstone.unknown303.errorlib.api.misc.EasyTag;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraftforge.eventbus.api.Event;
 import org.jetbrains.annotations.ApiStatus;
@@ -181,7 +182,7 @@ public class AbilitiesHandler implements Serializable {
 
         nbt.putInt("count", constantAbilities.size());
         for (int i = 0; i < constantAbilities.size(); i++)
-            nbt.putString("ability" + i, abilityId(constantAbilities.get(i)));
+            nbt.put("ability" + i, constantAbilities.get(i).save());
 
         return nbt;
     }
@@ -191,7 +192,7 @@ public class AbilitiesHandler implements Serializable {
 
         nbt.putInt("count", unlockedAbilities.size());
         for (int i = 0; i < unlockedAbilities.size(); i++)
-            nbt.putString("ability" + i, abilityId(unlockedAbilities.get(i)));
+            nbt.put("ability" + i, unlockedAbilities.get(i).save());
 
         return nbt;
     }
@@ -202,7 +203,7 @@ public class AbilitiesHandler implements Serializable {
         int count = Math.min(enabledAbilities.size(), 5);
         nbt.putInt("count", count);
         for (int i = 0; i < count; i++)
-            nbt.putString("ability" + i, abilityId(enabledAbilities.get(i)));
+            nbt.put("ability" + i, enabledAbilities.get(i).save());
 
         return nbt;
     }
@@ -213,7 +214,7 @@ public class AbilitiesHandler implements Serializable {
         int count = Math.min(enabledAbilities.size(), 5);
         nbt.putInt("count", count);
         for (int i = 0; i < count; i++)
-            nbt.putString("ability" + i, abilityId(availableAbilities.get(i)));
+            nbt.put("ability" + i, availableAbilities.get(i).save());
 
         return nbt;
     }
@@ -221,31 +222,27 @@ public class AbilitiesHandler implements Serializable {
     // LOADING
 
     public void loadConstantAbilitiesNBT(CompoundTag nbt) {
-        for (int i = 0; i < nbt.getInt("count"); i++) {
-            constantAbilities.add(i, Ability.fromID(
-                    nbt.getString("ability" + i)));
-        }
+        for (int i = 0; i < nbt.getInt("count"); i++)
+            constantAbilities.add(i, Ability.load((EasyTag)
+                    nbt.getCompound("ability" + i)));
     }
 
     public void loadUnlockedAbilitiesNBT(CompoundTag nbt) {
-        for (int i = 0; i < nbt.getInt("count"); i++) {
-            unlockedAbilities.add(i, Ability.fromID(
-                    nbt.getString("ability" + i)));
-        }
+        for (int i = 0; i < nbt.getInt("count"); i++)
+            unlockedAbilities.add(i, Ability.load((EasyTag)
+                    nbt.getCompound("ability" + i)));
     }
 
     public void loadEnabledAbilitiesNBT(CompoundTag nbt) {
-        for (int i = 0; i < nbt.getInt("count"); i++) {
-            enabledAbilities.set(i, Ability.fromID(
-                    nbt.getString("ability" + i)));
-        }
+        for (int i = 0; i < nbt.getInt("count"); i++)
+            enabledAbilities.add(i, Ability.load((EasyTag)
+                    nbt.getCompound("ability" + i)));
     }
 
     public void loadAvailableAbilitiesNBT(CompoundTag nbt) {
-        for (int i = 0; i < nbt.getInt("count"); i++) {
-            availableAbilities.set(i, Ability.fromID(
-                    nbt.getString("ability" + i)));
-        }
+        for (int i = 0; i < nbt.getInt("count"); i++)
+            availableAbilities.add(i, Ability.load((EasyTag)
+                    nbt.getCompound("ability" + i)));
     }
 
     public void loadAbilities(AbilitiesHandler old) {

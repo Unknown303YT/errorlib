@@ -1,6 +1,7 @@
 package com.riverstone.unknown303.errorlib.api.abilities.ability.provided;
 
 import com.riverstone.unknown303.errorlib.api.abilities.ability.Ability;
+import com.riverstone.unknown303.errorlib.api.misc.EasyTag;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -40,4 +41,10 @@ public class AttributeAbility extends Ability {
         if (instance != null)
             instance.removePermanentModifier(modifier.getId());
     }
+
+    @Override
+    public void saveAdditional(EasyTag tag) {}
+
+    @Override
+    public void loadAdditonal(EasyTag tag) {}
 }

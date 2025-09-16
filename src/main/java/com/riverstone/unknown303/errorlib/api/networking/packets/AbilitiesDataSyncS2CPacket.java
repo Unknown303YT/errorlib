@@ -1,23 +1,22 @@
 package com.riverstone.unknown303.errorlib.api.networking.packets;
 
 import com.riverstone.unknown303.errorlib.api.abilities.Abilities;
-import com.riverstone.unknown303.errorlib.api.abilities.ClientAbilitiesData;
 import com.riverstone.unknown303.errorlib.api.abilities.IAbilities;
+import com.riverstone.unknown303.errorlib.api.abilities.PlayerAbilitiesProvider;
 import net.minecraft.CrashReport;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.network.NetworkEvent;
 
 import java.io.IOException;
 import java.util.function.Supplier;
 
 public class AbilitiesDataSyncS2CPacket {
-    private final IAbilities abilities;
-
-    private boolean returned;
+    private final IAbilities newAbilities;
 
     public AbilitiesDataSyncS2CPacket(IAbilities abilities) {
-        this.abilities = abilities;
+        this.newAbilities = abilities;
     }
 
     public static AbilitiesDataSyncS2CPacket decode(FriendlyByteBuf buf) {
@@ -31,7 +30,7 @@ public class AbilitiesDataSyncS2CPacket {
 
     public void encode(FriendlyByteBuf buf) {
         try {
-            abilities.encode(buf);
+            newAbilities.encode(buf);
         } catch (IOException e) {
             Minecraft.crash(CrashReport.forThrowable(e, e.getMessage()));
             throw new RuntimeException(e);
@@ -40,8 +39,15 @@ public class AbilitiesDataSyncS2CPacket {
 
     public boolean handle(Supplier<NetworkEvent.Context> supplier) {
         NetworkEvent.Context context = supplier.get();
-        context.enqueueWork(() ->
-                ClientAbilitiesData.set(abilities.getOwner(), abilities));
+        context.enqueueWork(this::updateAbilities);
         return true;
+    }
+
+    private void updateAbilities() {
+        Player player = Minecraft.getInstance().player;
+        if (player != null) {
+            player.getCapability(PlayerAbilitiesProvider.PLAYER_ABILITIES).ifPresent(
+                    abilities -> abilities.copyFrom(newAbilities));
+        }
     }
 }

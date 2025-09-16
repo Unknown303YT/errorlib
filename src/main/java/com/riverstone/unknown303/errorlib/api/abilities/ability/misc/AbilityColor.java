@@ -6,18 +6,18 @@ public interface AbilityColor {
     String colorName();
     ResourceLocation textureLocation();
 
-    static AbilityColor of(String modId, String colorId) {
-        if (colorId == null) return of();
+    static AbilityColor of(String modId, String colorName) {
+        if (colorName == null) return of();
         return new AbilityColor() {
             @Override
             public String colorName() {
-                return colorId.toUpperCase();
+                return colorName;
             }
 
             @Override
             public ResourceLocation textureLocation() {
                 return ResourceLocation.fromNamespaceAndPath(modId,
-                        "textures/ability/border/%s.png".formatted(colorId));
+                        "textures/ability/border/%s.png".formatted(colorName));
             }
         };
     }

@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.riverstone.unknown303.errorlib.ErrorHelpers;
 import com.riverstone.unknown303.errorlib.api.misc.ErrorRegistries;
 import com.riverstone.unknown303.errorlib.api.networking.ErrorPacketHandler;
+import com.riverstone.unknown303.errorlib.api.subscribers.ErrorAPISubscriberHandler;
 import com.riverstone.unknown303.errorlib.events.api.ForgeEvents;
 import com.riverstone.unknown303.errorlib.events.api.ModEvents;
 import com.riverstone.unknown303.errorlib.misc.ErrorKeybinds;
@@ -42,6 +43,7 @@ public class ErrorAPI {
 
         MinecraftForge.EVENT_BUS.register(ForgeEvents.Common.class);
         MinecraftForge.EVENT_BUS.register(ForgeEvents.Client.class);
+        ErrorAPISubscriberHandler.gatherErrorLibSubscribers();
     }
 
     public static void load() {

@@ -11,58 +11,55 @@ import org.jetbrains.annotations.ApiStatus;
 import org.objectweb.asm.Type;
 import org.slf4j.Logger;
 
+import java.lang.reflect.Constructor;
 import java.util.*;
 
 public class ErrorAPISubscriberHandler {
     private static final Type ERRORLIB_SUBSCRIBER = Type.getType(ErrorLibSubscriber.class);
 
-    private static final HashMap<String, Class<?>> errorLibSubscribers = new HashMap<>();
+    private static final List<IErrorLibSubscriber> errorLibSubscribers = new ArrayList<>();
 
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    @ApiStatus.Internal
-    public static void gatherErrorAPISubscribers() {
-        LOGGER.debug(ErrorAPI.ERROR_API_MARKER, "Attempting to gather @ErrorLibSubscriber classes");
-        List<ModFileScanData.AnnotationData> targets = ModList.get().getAllScanData()
-                .stream().map(ModFileScanData::getAnnotations)
-                .flatMap(Collection::stream)
-                .filter(data ->
-                        ERRORLIB_SUBSCRIBER.equals(data.annotationType()))
-                .toList();
+    public static void gatherErrorLibSubscribers() {
+        errorLibSubscribers.clear();
+        errorLibSubscribers.addAll(getInstances(ErrorLibSubscriber.class,
+                IErrorLibSubscriber.class));
+    }
 
-        targets.forEach(data -> {
-            try {
-                LOGGER.debug(ErrorAPI.ERROR_API_MARKER, "Auto-subscribing {} to ErrorLib", data.clazz().getClassName());
-                errorLibSubscribers.put((String) data.annotationData().get("modId"), Class.forName(data.clazz().getClassName()));
-            } catch (ClassNotFoundException e) {
-                String description = "Failed to load ErrorAPI Subscriber class %s for @ErrorLibSubscriber annotation".formatted(data.clazz().getClassName());
-                LOGGER.warn(ErrorAPI.ERROR_API_MARKER, description);
-                LOGGER.error(LogUtils.FATAL_MARKER, description);
-                Minecraft.crash(CrashReport.forThrowable(e, description));
-            }
+    public static void autoRegisterSubscribers() {
+        errorLibSubscribers.forEach(subscriber -> {
+            if (!subscriber.autoRegister())
+                return;
+            subscriber.modInfo().register(subscriber.eventBus());
         });
     }
 
-//    public static void initializeErrorAPISubscribers() {
-//        errorLibSubscribers.forEach((modId, clazz) ->
-//                Arrays.stream(clazz.getFields())
-//                .filter(f -> Modifier.isStatic(f.getModifiers()))
-//                .filter(f ->
-//                        f.isAnnotationPresent(ErrorLibSubscriber.ModInfo.class))
-//                .forEach(field -> {
-//                    try {
-//                        if (field.get(null) instanceof ModInfo modInfo)
-//                            modInfo.register(Mod.EventBusSubscriber.Bus.MOD.bus().get());
-//                        else {
-//                            String description = "Field " + field.getName() + " is not a ModInfo but was annotated with @ModInfo!";
-//                            IllegalStateException exception = new IllegalStateException(description);
-//                            Minecraft.crash(CrashReport.forThrowable(exception, description));
-//                            throw new RuntimeException(exception);
-//                        }
-//                    } catch (IllegalAccessException e) {
-//                        Minecraft.crash(CrashReport.forThrowable(e, e.getMessage()));
-//                        throw new RuntimeException(e);
-//                    }
-//                }));
-//    }
+    private static <T> List<T> getInstances(Class<?> annotationClass, Class<T> instanceClass) {
+        Type annotationType = Type.getType(annotationClass);
+        List<ModFileScanData> allScanData = ModList.get().getAllScanData();
+        Set<String> pluginClassNames = new LinkedHashSet<>();
+        for (ModFileScanData scanData : allScanData) {
+            Iterable<ModFileScanData.AnnotationData> annotations = scanData.getAnnotations();
+            for (ModFileScanData.AnnotationData a : annotations) {
+                if (Objects.equals(a.annotationType(), annotationType)) {
+                    String memberName = a.memberName();
+                    pluginClassNames.add(memberName);
+                }
+            }
+        }
+        List<T> instances = new ArrayList<>();
+        for (String className : pluginClassNames) {
+            try {
+                Class<?> asmClass = Class.forName(className);
+                Class<? extends T> asmInstanceClass = asmClass.asSubclass(instanceClass);
+                Constructor<? extends T> constructor = asmInstanceClass.getDeclaredConstructor();
+                T instance = constructor.newInstance();
+                instances.add(instance);
+            } catch (ReflectiveOperationException | LinkageError e) {
+                LOGGER.error("Failed to load: {}", className, e);
+            }
+        }
+        return instances;
+    }
 }

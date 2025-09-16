@@ -1,10 +1,10 @@
 package com.riverstone.unknown303.errorlib.commands;
 
 import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.riverstone.unknown303.errorlib.api.abilities.PlayerAbilitiesProvider;
 import com.riverstone.unknown303.errorlib.api.misc.ErrorRegistries;
-import net.minecraft.commands.CommandSource;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.Component;
@@ -13,30 +13,21 @@ import net.minecraft.server.level.ServerPlayer;
 public class DebugCommand {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(Commands.literal("debug")
-                .then(Commands.literal("abilities")).executes(
-                        command -> debugAbilities(
-                                command.getSource())));
-
-        dispatcher.register(Commands.literal("debug")
-                .then(Commands.literal("abilities").then(
-                        Commands.literal("registered")
-                                .executes(command ->
-                                        debugRegisteredAbilities(command.getSource())
-                        ))));
+                        .then(Commands.argument("abilities", StringArgumentType.word())
+                                .executes(ctx ->
+                                        debugAbilities(ctx.getSource()))
+                                .then(Commands.argument("registered", StringArgumentType.word())
+                                        .executes(ctx ->
+                                                debugRegisteredAbilities(ctx.getSource())))));
     }
 
     private static int debugAbilities(CommandSourceStack source) throws CommandSyntaxException {
-        if (source.isPlayer()) {
-            ServerPlayer player = source.getPlayerOrException();
-            player.getCapability(PlayerAbilitiesProvider.PLAYER_ABILITIES).ifPresent(
-                    abilities -> {
-
-                    });
-            return player.getCapability(PlayerAbilitiesProvider.PLAYER_ABILITIES)
-                    .isPresent() ? 1 : 0;
-        } else {
-            return 1;
-        }
+        ServerPlayer player = source.getPlayerOrException();
+        player.getCapability(PlayerAbilitiesProvider.PLAYER_ABILITIES).ifPresent(
+                abilities ->
+                        abilities.log(player));
+        return player.getCapability(PlayerAbilitiesProvider.PLAYER_ABILITIES).isPresent() ?
+                1 : 0;
     }
 
     private static int debugRegisteredAbilities(CommandSourceStack source) throws CommandSyntaxException {

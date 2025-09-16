@@ -61,11 +61,7 @@ public class ErrorPacketHandler {
         INSTANCE.send(PacketDistributor.PLAYER.with(() -> player), packet);
     }
 
-    public static <PACKET> void sendToAll(PACKET packet, ServerPlayer sender) {
-        sender.level().getServer().getAllLevels().forEach(level -> {
-            level.players().forEach(player -> {
-                sendToPlayer(packet, player);
-            });
-        });
+    public static <PACKET> void sendToAll(PACKET packet) {
+        INSTANCE.send(PacketDistributor.ALL.noArg(), packet);
     }
 }

@@ -34,7 +34,8 @@ public class AbilityKeybindPressedC2SPacket {
                 player.getCapability(PlayerAbilitiesProvider.PLAYER_ABILITIES)
                         .ifPresent(abilities -> {
                             abilities.pressAbilityKeybind(keybindSlot, player);
-                            ErrorPacketHandler.sendToAll(new AbilitiesDataSyncS2CPacket(abilities), player);
+                            ErrorPacketHandler.sendToAll(
+                                    new AbilitiesDataSyncS2CPacket(abilities));
                         });
                 returned = player.getCapability(PlayerAbilitiesProvider.PLAYER_ABILITIES).isPresent();
             }

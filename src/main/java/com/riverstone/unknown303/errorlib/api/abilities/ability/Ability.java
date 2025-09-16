@@ -5,7 +5,9 @@ import com.riverstone.unknown303.errorlib.api.abilities.ability.misc.AbilityColo
 import com.riverstone.unknown303.errorlib.api.abilities.ability.misc.AbilityColors;
 import com.riverstone.unknown303.errorlib.api.abilities.ability.misc.AbilityContext;
 import com.riverstone.unknown303.errorlib.api.abilities.ability.origin.AbilityOrigin;
+import com.riverstone.unknown303.errorlib.api.misc.EasyTag;
 import com.riverstone.unknown303.errorlib.api.misc.ErrorRegistries;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
@@ -81,8 +83,27 @@ public abstract class Ability {
         return context;
     }
 
+    public final EasyTag save() {
+        EasyTag tag = new EasyTag();
+        tag.putString("id", getId().toString());
+        EasyTag additional = new EasyTag();
+        saveAdditional(additional);
+        tag.put("additional", additional);
+        return tag;
+    }
+
+    public static Ability load(EasyTag tag) {
+        Ability value = fromID(tag.getString("id"));
+        value.loadAdditonal((EasyTag) tag.getCompound("additional"));
+        return value;
+    }
+
+    protected abstract void saveAdditional(EasyTag tag);
+
+    protected abstract void loadAdditonal(EasyTag tag);
+
     public static Ability fromID(String id) {
-        if (Objects.equals(id, "null"))
+        if (Objects.equals(id, ""))
             return null;
         return fromID(ResourceLocation.parse(id));
     }
@@ -113,7 +134,7 @@ public abstract class Ability {
         public Properties() {
             this.abilityColor = AbilityColors.NO_COLOR;
             this.abilityContext = AbilityContext.TOGGLE;
-            this.abilityOrigin = ((player, level) -> false);
+            this.abilityOrigin = AbilityOrigin.empty();
         }
 
         public Properties color(AbilityColor color) {

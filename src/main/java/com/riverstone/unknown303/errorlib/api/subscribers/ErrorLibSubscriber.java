@@ -5,9 +5,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+/**
+ * A marker class that defines a {@link IErrorLibSubscriber} for later collection.
+ */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface ErrorLibSubscriber {
-    String modId();
-    boolean autoRegister() default true;
-}
+public @interface ErrorLibSubscriber {}

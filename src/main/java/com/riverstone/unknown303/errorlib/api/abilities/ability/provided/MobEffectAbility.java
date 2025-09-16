@@ -1,6 +1,7 @@
 package com.riverstone.unknown303.errorlib.api.abilities.ability.provided;
 
 import com.riverstone.unknown303.errorlib.api.abilities.ability.Ability;
+import com.riverstone.unknown303.errorlib.api.misc.EasyTag;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -31,4 +32,10 @@ public class MobEffectAbility extends Ability {
         if (immediatelyCancel)
             player.removeEffect(effect.getEffect());
     }
+
+    @Override
+    public void saveAdditional(EasyTag tag) {}
+
+    @Override
+    public void loadAdditonal(EasyTag tag) {}
 }

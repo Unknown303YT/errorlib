@@ -13,6 +13,7 @@ import net.minecraft.nbt.NbtIo;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.MinecraftForge;
 import org.jetbrains.annotations.ApiStatus;
@@ -25,7 +26,6 @@ public class Abilities implements IAbilities {
             ResourceLocation.fromNamespaceAndPath(ErrorMod.MOD_ID, "abilities_properties");
 
     private final AbilitiesHandler handler = new AbilitiesHandler();
-    private String owner = "";
 
     private final HashMap<ResourceLocation, Runnable> queue = new HashMap<>();
 
@@ -35,14 +35,40 @@ public class Abilities implements IAbilities {
     }
 
     @Override
-    public IAbilities setOwner(Player player) {
-        this.owner = player.getStringUUID();
-        return this;
-    }
+    public void log(ServerPlayer player) {
+        player.sendSystemMessage(Component.literal("Available Abilities:"));
+        for (Ability ability : handler.getAvailableAbilities()) {
+            if (ability == null) {
+                player.sendSystemMessage(Component.literal("NULL ABILITY"));
+                continue;
+            }
+            player.sendSystemMessage(Component.literal(("Found Ability %s. Context %s, " +
+                    "Color %s. " + "Enabled = %s").formatted(ability.getName().getString(),
+                    ability.getContext().toString(), ability.getColor().colorName(),
+                    handler.getEnabledAbilities().contains(ability))));
+        }
 
-    @Override
-    public String getOwner() {
-        return owner;
+        player.sendSystemMessage(Component.literal("Unlocked Abilities:"));
+        for (Ability ability : handler.getUnlockedAbilities()) {
+            if (ability == null) {
+                player.sendSystemMessage(Component.literal("NULL ABILITY"));
+                continue;
+            }
+            player.sendSystemMessage(Component.literal(("Found Ability %s. Context %s, " +
+                    "Color %s. ").formatted(ability.getName().getString(),
+                    ability.getContext().toString(), ability.getColor().colorName())));
+        }
+
+        player.sendSystemMessage(Component.literal("Constant Abilities:"));
+        for (Ability ability : handler.getConstantAbilities()) {
+            if (ability == null) {
+                player.sendSystemMessage(Component.literal("NULL ABILITY"));
+                continue;
+            }
+            player.sendSystemMessage(Component.literal(("Found Ability %s. Context %s, " +
+                    "Color %s. ").formatted(ability.getName().getString(),
+                    ability.getContext().toString(), ability.getColor().colorName())));
+        }
     }
 
     @Override
@@ -88,12 +114,14 @@ public class Abilities implements IAbilities {
 
     private void runFromQueue(ResourceLocation key) {
         queue.get(key).run();
+        queue.remove(key);
     }
 
     private void runAll() {
         queue.forEach((key, value) -> {
             value.run();
         });
+        queue.clear();
     }
 
     @Override
@@ -185,7 +213,6 @@ public class Abilities implements IAbilities {
     @Override
     public CompoundTag saveData() {
         CompoundTag data = new CompoundTag();
-        data.putString("owner", this.owner == null ? "" : this.owner);
         data.put("constant", handler.getConstantAbilitiesNBT());
         data.put("enabled", handler.getEnabledAbilitiesNBT());
         data.put("available", handler.getAvailableAbilitiesNBT());
@@ -201,7 +228,6 @@ public class Abilities implements IAbilities {
 
     public static IAbilities fromNBT(CompoundTag data) {
         Abilities abilities = new Abilities();
-        abilities.owner = data.getString("owner");
         abilities.handler.loadConstantAbilitiesNBT(data.getCompound("constant"));
         abilities.handler.loadEnabledAbilitiesNBT(data.getCompound("enabled"));
         abilities.handler.loadAvailableAbilitiesNBT(data.getCompound("available"));
