@@ -26,7 +26,7 @@ public class TrimPatternHelper extends ErrorLibHelper {
     }
 
     public RegistryObject<Item> registerTrimPattern(String id) {
-        ResourceLocation resourceLocation = new ResourceLocation(this.getModId(), id);
+        ResourceLocation resourceLocation = ResourceLocation.fromNamespaceAndPath(this.getModId(), id);
         ResourceKey<TrimPattern> trimPattern = ResourceKey.create(Registries.TRIM_PATTERN,
                 resourceLocation);
         RegistryObject<Item> toReturn = this.getRegister().register(id + "_armor_trim_smithing_template",

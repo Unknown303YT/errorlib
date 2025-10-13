@@ -2,8 +2,8 @@ Manifest-Version: 1.0
 Specification-Title: errorlib
 Specification-Vendor: Unknown_303
 Specification-Version: 1
-Implementation-Title: ErrorLib-1.20.1
-Implementation-Version: 2.1.1-1.20.1
+Implementation-Title: errorlib
+Implementation-Version: 2.1.2-1.20.1
 Implementation-Vendor: Unknown_303
-Implementation-Timestamp: 2025-01-10T17:41:24+1030
+Implementation-Timestamp: 2025-10-13T17:03:06+1030
 

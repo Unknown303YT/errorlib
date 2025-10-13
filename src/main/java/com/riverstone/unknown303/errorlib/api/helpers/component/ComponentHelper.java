@@ -16,7 +16,7 @@ public class ComponentHelper extends ErrorLibHelper {
 
     public Component createTranslatableComponent(String type, String id) {
         return Component.translatable(Util.makeDescriptionId(type,
-                new ResourceLocation(this.getModId(), id)));
+                ResourceLocation.fromNamespaceAndPath(this.getModId(), id)));
     }
 
     public Component combineComponents(MutableComponent base, MutableComponent addition) {

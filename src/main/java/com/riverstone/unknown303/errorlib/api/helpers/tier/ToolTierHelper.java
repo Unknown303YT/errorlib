@@ -18,7 +18,7 @@ public class ToolTierHelper extends ErrorLibHelper {
                         info.getAttackSpeed(), info.getTierAttackDamage(),
                         info.getEnchantability(), info.getMiningTag(),
                         info.getRepairIngredient()),
-                new ResourceLocation(this.getModId(), tierId),
+                ResourceLocation.fromNamespaceAndPath(this.getModId(), tierId),
                 info.getLowerRank(), info.getHigherRank());
     }
 

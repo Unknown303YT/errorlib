@@ -27,7 +27,7 @@ public class TrimMaterialHelper extends ErrorLibHelper {
 
     public void registerTrimMaterial(String name, Item item, TextColor textColor, TrimMaterialColor color) {
         ResourceKey<TrimMaterial> trimKey = ResourceKey.create(Registries.TRIM_MATERIAL,
-                new ResourceLocation(this.getModId(), name));
+                ResourceLocation.fromNamespaceAndPath(this.getModId(), name));
         trimMaterialItems.put(trimKey, item);
         trimMaterialTextColors.put(trimKey, textColor);
         trimMaterialColors.put(trimKey, color);

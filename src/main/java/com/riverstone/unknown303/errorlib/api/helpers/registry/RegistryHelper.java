@@ -28,7 +28,7 @@ public class RegistryHelper extends ErrorLibHelper {
     }
 
     private <T> ResourceKey<Registry<T>> key(String registryId, Supplier<T> sup) {
-        return ResourceKey.createRegistryKey(new ResourceLocation(this.getModId(), registryId));
+        return ResourceKey.createRegistryKey(ResourceLocation.fromNamespaceAndPath(this.getModId(), registryId));
     }
 
     public <T> List<T> getValidRegistrations(IForgeRegistry<T> reg, Supplier<T> sup) {
@@ -36,6 +36,6 @@ public class RegistryHelper extends ErrorLibHelper {
     }
 
     public <T> T getRegistration(IForgeRegistry<T> reg, String registryId, Supplier<T> sup) {
-        return reg.getValue(new ResourceLocation(this.getModId(), registryId));
+        return reg.getValue(ResourceLocation.fromNamespaceAndPath(this.getModId(), registryId));
     }
 }

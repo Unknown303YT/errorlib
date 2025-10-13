@@ -14,7 +14,7 @@ public class ArmorMaterialHelper extends ErrorLibHelper {
     }
 
     public ErrorLibArmorMaterial createArmorMaterial(String name, ArmorInfo info) {
-        return new ErrorLibArmorMaterial(new ResourceLocation(modInfo.getModId(), name),
+        return new ErrorLibArmorMaterial(ResourceLocation.fromNamespaceAndPath(modInfo.getModId(), name),
                 info.getDurabilityMultiplier(), info.getProtection(), info.getEnchantmentValue(),
                 info.getEquipSound(), info.getToughness(), info.getKnockbackResistance(),
                 info.getRepairIngredient());

@@ -24,7 +24,7 @@ public class ErrorLibArmorMaterial implements CustomArmorMaterial {
 
     ErrorLibArmorMaterial(String name, int durabilityMultiplier, int[] protection, int enchantability,
                           Lazy<SoundEvent> equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
-        this(new ResourceLocation(ErrorMod.MOD_ID, name), durabilityMultiplier, protection, enchantability,
+        this(ResourceLocation.fromNamespaceAndPath(ErrorMod.MOD_ID, name), durabilityMultiplier, protection, enchantability,
                 equipSound, toughness, knockbackResistance, repairIngredient);
     }
 

@@ -34,9 +34,9 @@ public class TierInfo {
     private boolean isEquivalent = false;
 
     private static final TagKey<Block> EMPTY = TagKey.create(Registries.BLOCK,
-            new ResourceLocation(ErrorMod.MOD_ID, "empty"));
+            ResourceLocation.fromNamespaceAndPath(ErrorMod.MOD_ID, "empty"));
     private static final TagKey<Block> EQUAL_RANK = TagKey.create(Registries.BLOCK,
-            new ResourceLocation(ErrorMod.MOD_ID, "equal"));
+            ResourceLocation.fromNamespaceAndPath(ErrorMod.MOD_ID, "equal"));
 
     public TierInfo(Logger logger, int durability, float attackSpeed,
                     float tierAttackDamage, int enchantability) {

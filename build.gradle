@@ -122,6 +122,8 @@ repositories {
     // flatDir {
     //     dir 'libs'
     // }
+
+    mavenLocal()
 }
 
 dependencies {
@@ -151,8 +153,10 @@ tasks.named('processResources', ProcessResources).configure {
             minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
             forge_version: forge_version, forge_version_range: forge_version_range,
             loader_version_range: loader_version_range,
-            mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
-            mod_authors: mod_authors, mod_description: mod_description,
+            mod_id: mod_id, mod_name: mod_name,
+            mod_license: mod_license, mod_license_url: mod_license_url,
+            mod_version: mod_version, mod_authors: mod_authors,
+            mod_description: mod_description, mod_url: mod_url,
     ]
     inputs.properties replaceProperties
 
@@ -179,21 +183,50 @@ tasks.named('jar', Jar).configure {
     finalizedBy 'reobfJar'
 }
 
-// However if you are in a multi-project build, dev time needs unobfed jar files, so you can delay the obfuscation until publishing by doing:
-// tasks.named('publish').configure {
-//     dependsOn 'reobfJar'
-// }
+tasks.register("finalize") {
+    group = "build"
+    description = "Builds the jar and creates the maven data."
 
-// Example configuration to allow publishing using the maven-publish plugin
+    dependsOn build, publish
+}
+
 publishing {
     publications {
         register('mavenJava', MavenPublication) {
             artifact jar
+
+            pom {
+                name.set("${mod_name}")
+                description.set("${mod_description}")
+                url.set("${mod_url}")
+
+                licenses {
+                    license {
+                        name.set("${mod_license}")
+                        url.set("${mod_license_url}")
+                    }
+                }
+
+                developers {
+                    developer {
+                        id.set("unknown_303")
+                        name.set("Unknown_303")
+                        email.set("unknown.303yt@gmail.com")
+                    }
+                }
+
+                scm {
+                    connection.set("scm:git:git://github.com/Unknown303YT/errorlib.git")
+                    developerConnection.set("scm:git:ssh://github.com/Unknown303YT/errorlib.git")
+                    url.set("https://github.com/Unknown303YT/errorlib")
+                }
+            }
         }
     }
     repositories {
         maven {
-            url "file://${project.projectDir}/mcmodsrepo"
+            name = "local"
+            url = uri(layout.buildDirectory.dir("maven"))
         }
     }
 }
@@ -202,11 +235,7 @@ tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
 
-tasks.register('devJar', Jar) {
-    archiveClassifier.set("api")
-    from sourceSets.main.output
-}
-
-artifacts {
-    archives devJar
+java {
+    withSourcesJar()
+    withJavadocJar()
 }

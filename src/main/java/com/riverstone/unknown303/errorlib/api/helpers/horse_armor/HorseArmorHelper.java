@@ -52,6 +52,6 @@ public class HorseArmorHelper extends ErrorLibHelper {
     }
 
     private ResourceLocation createHorseArmorTexture(String armorId) {
-        return new ResourceLocation(this.getModId(), "textures/entity/horse/armor/horse_armor_" + armorId + ".png");
+        return ResourceLocation.fromNamespaceAndPath(this.getModId(), "textures/entity/horse/armor/horse_armor_" + armorId + ".png");
     }
 }
