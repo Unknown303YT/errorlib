@@ -193,7 +193,7 @@ tasks.register("finalize") {
 publishing {
     publications {
         register('mavenJava', MavenPublication) {
-            artifact jar
+            from components.java
 
             pom {
                 name.set("${mod_name}")
