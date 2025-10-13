@@ -28,12 +28,7 @@ public class HorseArmorHelper extends ErrorLibHelper {
     }
 
     public RegistryObject<Item> registerVanillaHorseArmor(ArmorMaterial material,
-                                                   Item.Properties properties) {
-        return registerVanillaHorseArmor(material, properties, false);
-    }
-
-    public RegistryObject<Item> registerVanillaHorseArmor(ArmorMaterial material,
-                                                          Item.Properties properties, boolean betterThanDiamond) {
+                                                          Item.Properties properties) {
         int protection;
         if (material.getDefenseForType(ArmorItem.Type.CHESTPLATE) +
                 material.getDefenseForType(ArmorItem.Type.BOOTS) == 11) {

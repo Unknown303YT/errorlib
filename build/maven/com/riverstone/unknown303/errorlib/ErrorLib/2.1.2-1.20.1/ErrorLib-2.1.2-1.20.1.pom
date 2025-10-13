@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.riverstone.unknown303.errorlib</groupId>
+  <artifactId>ErrorLib</artifactId>
+  <version>2.1.2-1.20.1</version>
+  <name>Error: Core</name>
+  <description>Core and API Mod for mods by Unknown_303 and any associates.</description>
+  <url>https://modrinth.com/mod/errorlib-api/</url>
+  <licenses>
+    <license>
+      <name>GNU GPL v3.0 Only</name>
+      <url>https://www.gnu.org/licenses/gpl-3.0.txt</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>unknown_303</id>
+      <name>Unknown_303</name>
+      <email>unknown.303yt@gmail.com</email>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git://github.com/Unknown303YT/errorlib.git</connection>
+    <developerConnection>scm:git:ssh://github.com/Unknown303YT/errorlib.git</developerConnection>
+    <url>https://github.com/Unknown303YT/errorlib</url>
+  </scm>
+</project>
